@@ -1,0 +1,121 @@
+openapi: "3.0.0"
+info:
+  description: "Hello World Api"
+  version: "1.0.0"
+  title: "Civic API"
+tags:
+  - name: Hello
+    description: Hello World
+servers:
+  - url: http://localhost:8080/v1
+    description: "localhost"
+
+
+#############################################################
+# PATHS #####################################################
+#############################################################
+
+paths:
+  /person:
+    post:
+      tags:
+        - Person
+      summary: "Adds a Person"
+      operationId: "addPerson"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/person'
+      responses:
+        201:
+          description: "added"
+        400:
+          $ref: '#/components/responses/BadRequest'
+        500:
+          $ref: '#/components/responses/Exception'
+
+    get:
+      tags:
+        - Person
+      summary: "Gets a person"
+      operationId: "getPerson"
+      parameters:
+        - name: personId
+          in: path
+          description: "The primary key for the person you'd like to retrieve."
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: "Returns a person."
+          content:
+            application/json:
+              schema:
+                type: person
+        400:
+          $ref: '#/components/responses/BadRequest'
+        500:
+          $ref: '#/components/responses/Exception'
+
+
+components:
+
+  #############################################################
+  # SCHEMAs ###################################################
+  #############################################################
+
+  schemas:
+
+    #############################################################
+    # DTOs ######################################################
+    #############################################################
+
+    personRequest:
+      type: object
+      properties:
+        firstName:
+          type: string
+          example: "Smitty"
+          description: "Description of firstName"
+        lastName:
+          type: string
+          example: "Smith"
+          description: "Description of lastName"
+
+    person:
+      type: object
+      properties:
+        personId:
+            type: string
+            example: "ABC123"
+            description: "Description of ID"
+        firstName:
+          type: string
+          example: "Jake"
+          description: "Description of firstName"
+        lastName:
+          type: string
+          example: "Omaits"
+          description: "Description of lastName"
+
+  #############################################################
+  #todo: build out more comprehensive list of status codes and descriptions
+  #############################################################
+  responses:
+    NotFound:
+      description: The specified resource was not found.
+    Unauthorized:
+      description: You are not authorized to access this resource.
+    Exception:
+      description: A system error has occurred and the request was not processed.
+    Created:
+      description: The request was processed successfully and the resource has been created.
+    BadRequest:
+      description: The request could not be understood by the server due to malformed data.
+    NotAllowed:
+      description: The server has not implemented the requested HTTP method.
+    OK:
+      description: The request has processed successfully.
