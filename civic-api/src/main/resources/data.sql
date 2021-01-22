@@ -1,0 +1,1 @@
+insert into person (person_ID, first_name, last_name, create_date) values ('1', 'Joe', 'Momma', CURDATE());
