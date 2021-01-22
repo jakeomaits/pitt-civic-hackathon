@@ -36,6 +36,7 @@ paths:
         500:
           $ref: '#/components/responses/Exception'
 
+  /person/{personId}:
     get:
       tags:
         - Person

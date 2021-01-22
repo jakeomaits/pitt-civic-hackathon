@@ -36,18 +36,16 @@ public class PersonApiController implements PersonApi {
     }
 
     @Override
-    public ResponseEntity<Person> getPerson(@Valid String personId) {
-        com.dsg.hackathon.civicapi.model.Person person = personRepository.getOne(personId);
-        com.dsg.hackathon.civicapi.dto.Person dtoPerson = modelMapper.map(person, com.dsg.hackathon.civicapi.dto.Person.class);
-        return new ResponseEntity<Person>(dtoPerson, HttpStatus.OK);
+    public ResponseEntity<Person> getPerson(String personId) {
+        com.dsg.hackathon.civicapi.model.Person person = personRepository.getOne("1");
+        if (person != null) {
+            com.dsg.hackathon.civicapi.dto.Person dtoPerson = modelMapper.map(person, com.dsg.hackathon.civicapi.dto.Person.class);
+            return new ResponseEntity<Person>(dtoPerson, HttpStatus.OK);
+        }
+        else
+        {
+            return new ResponseEntity<Person>(new Person(), HttpStatus.NOT_FOUND);
+        }
     }
-
-    //    @Override
-//    public ResponseEntity<Person> getPerson(String personId) {
-//        com.dsg.hackathon.civicapi.model.Person person = personRepository.getOne(personId);
-//        com.dsg.hackathon.civicapi.dto.Person dtoPerson = modelMapper.map(person, com.dsg.hackathon.civicapi.dto.Person.class);
-//        return new ResponseEntity<Person>(dtoPerson, HttpStatus.OK);
-//        //return null;
-//    }
 
 }
