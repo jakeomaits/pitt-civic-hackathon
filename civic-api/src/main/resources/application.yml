@@ -9,11 +9,15 @@ spring:
   jackson:
     default-property-inclusion: NON_NULL
   jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
+    database: postgresql
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
   datasource:
-    url: jdbc:h2:mem:adyen-tender-api
-    driverClassName: org.h2.Driver
-    username: sa
+    url: ${JDBC_DATABASE_URL:jdbc:h2:mem:adyen-tender-api}
+    username: ${JDBC_DATABASE_USERNAME}
+    password: ${JDBC_DATABASE_PASSWORD}
   h2:
     console:
       enabled: true
