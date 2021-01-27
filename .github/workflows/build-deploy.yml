@@ -47,6 +47,6 @@ jobs:
 
     - name: Deploy to Heroku
       if: github.ref == 'refs/heads/main'
-      run: mvn -B -pl :civic-api: heroku:deploy
+      run: "mvn -B -pl :civic-api heroku:deploy"
       env:
         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
