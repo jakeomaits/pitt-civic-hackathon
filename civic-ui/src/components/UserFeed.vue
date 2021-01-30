@@ -1,5 +1,5 @@
 <template>
-  <b-container fluid class="mb-4">
+  <b-container fluid class="mt-4 mb-4">
     <b-row >
       <b-col><h5>Completed Requests</h5></b-col>
       <b-col>
@@ -21,7 +21,9 @@
 </template>
 
 <script>
-import Help from './Help.vue'
+import Help from './Help.vue';
+import { CIVIC_API } from "../http-common";
+
 export default {
   name: "UserFeed",
   components: {
@@ -62,6 +64,14 @@ export default {
       ],
     };
   },
+  async created() {
+    console.log('Calling civic API for user helps');
+    //const userHelps = await CIVIC_API.get('/help/b6ab3c46-62a3-11eb-ae93-0242ac130002');
+    const userHelps = await CIVIC_API.get('/helps?userId=b6ab3c46-62a3-11eb-ae93-0242ac130002');
+    // this.people.push(personOne.data);
+    console.log(userHelps.data);
+    console.log(`user helps = ${userHelps.data}`);
+},
 };
 </script>
 
