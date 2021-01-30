@@ -40,38 +40,14 @@ export default {
           },
         ],
       },
-      helps: [
-        {
-          id: 1,
-          title: "Grillmarks",
-          description:
-            "Accidentially burned my foot on a George Foreman grill. Need someone to drive me to the hospital!",
-          location: "Mt Lebanon",
-        },
-        {
-          id: 2,
-          title: "Jello",
-          description: "Someone put my stapler inside Jello. Please help!",
-          location: "Hankey Farms",
-        },
-        {
-          id: 3,
-          title: "Marathon",
-          description:
-            "Can someone pick up some fettucine alfredo for me? I have a marathon later and need to carb load.",
-          location: "South Hills",
-        },
-      ],
+      helps: [],
     };
   },
   async created() {
     console.log('Calling civic API for user helps');
-    //const userHelps = await CIVIC_API.get('/help/b6ab3c46-62a3-11eb-ae93-0242ac130002');
     const userHelps = await CIVIC_API.get('/helps?userId=b6ab3c46-62a3-11eb-ae93-0242ac130002');
-    // this.people.push(personOne.data);
-    console.log(userHelps.data);
-    console.log(`user helps = ${userHelps.data}`);
-},
+    this.helps = userHelps.data.helps;
+  },
 };
 </script>
 
