@@ -9,12 +9,10 @@
         ></b-form-select
       ></b-col>
     </b-row>
-    <b-row class="mt-2">
-      <Help
-        v-for="help of helps"
-        v-bind:key="help.id"
-        :help="help"
-      />
+    <b-row class="mt-2" v-for="chunk in helpsChunks" v-bind:key="chunk.id">
+      <b-col v-for="help of chunk" v-bind:key="help.helpId">
+        <Help :help="help" />
+      </b-col>
     </b-row>
   </b-container>
 </template>
@@ -22,6 +20,7 @@
 <script>
 import Help from './Help.vue';
 import { CIVIC_API } from "../http-common";
+import _ from 'lodash';
 
 export default {
   name: "Feed",
@@ -40,12 +39,15 @@ export default {
         ],
       },
       helps: [],
+      helpsChunks: []
     };
   },
   async created() {
     console.log('Calling civic API for all helps');
     const allHelps = await CIVIC_API.get('/helps');
     this.helps = allHelps.data.helps;
+    this.helpsChunks = _.chunk(allHelps.data.helps, 2);
+    console.log(this.helpsChunks);
   },
 };
 </script>
