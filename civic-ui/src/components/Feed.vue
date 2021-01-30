@@ -1,14 +1,13 @@
 <template>
   <b-container fluid>
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <h4>Pittsburgh Civic Hackathon UI</h4>
+    <h4>Feed goes here</h4>
   </b-container>
 </template>
 
 <script>
 
 export default {
-  name: "Home",
+  name: "Feed",
   data() {
     return {
     };
