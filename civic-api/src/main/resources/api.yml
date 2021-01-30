@@ -256,7 +256,14 @@ components:
           type: string
           description: "An image that can help the volunteers understand what needs done."
           example: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.meowingtons.com%2Fblogs%2Flolcats%2Fwhy-cats-get-stuck-in-trees-and-what-to-do-when-it-happens&psig=AOvVaw2HGr6-eWflr4L6EW5UJIxk&ust=1612119678737000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCPjGiP6rxO4CFQAAAAAdAAAAABAD"
-
+        timeOfDay:
+            type: string
+            description: "Free text field providing info on when the task could be completed."
+            example: "Morning"
+        daysRemaining:
+            type: integer
+            description: "Number of days left to complete this help. This field is calculated from the requested date minus current date."
+            example: "5"
 
     helpsResponse:
         type: object
@@ -300,6 +307,10 @@ components:
           description: "An image that can help the volunteers understand what needs done."
           example: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.meowingtons.com%2Fblogs%2Flolcats%2Fwhy-cats-get-stuck-in-trees-and-what-to-do-when-it-happens&psig=AOvVaw2HGr6-eWflr4L6EW5UJIxk&ust=1612119678737000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCPjGiP6rxO4CFQAAAAAdAAAAABAD"
           format: uri
+        timeOfDay:
+          type: string
+          description: "Free text field providing info on when the task could be completed."
+          example: "Morning"
 
     addHelpResponse:
       type: object
