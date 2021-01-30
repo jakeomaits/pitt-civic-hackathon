@@ -19,8 +19,7 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
   datasource:
     url: ${JDBC_DATABASE_URL:jdbc:h2:mem:adyen-tender-api}
-    username: ${JDBC_DATABASE_USERNAME}
-    password: ${JDBC_DATABASE_PASSWORD}
+    username: sa
   h2:
     console:
       enabled: true

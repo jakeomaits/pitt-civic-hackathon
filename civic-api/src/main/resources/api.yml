@@ -65,6 +65,54 @@ paths:
         500:
           $ref: '#/components/responses/Exception'
 
+  /help:
+    post:
+      tags:
+        - Help
+      summary: "Add a Help"
+      operationId: "addHelp"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/addHelpRequest'
+      responses:
+        201:
+          description: "added"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/addHelpResponse'
+        400:
+          $ref: '#/components/responses/BadRequest'
+        500:
+          $ref: '#/components/responses/Exception'
+
+  /help/{helpId}:
+    get:
+      tags:
+        - User
+      summary: "Gets a help"
+      operationId: "getHelp"
+      parameters:
+        - name: helpId
+          in: path
+          description: "The primary key for the help you'd like to retrieve."
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: "Returns a help."
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/help'
+        400:
+          $ref: '#/components/responses/BadRequest'
+        500:
+          $ref: '#/components/responses/Exception'
 
 components:
 
@@ -148,6 +196,49 @@ components:
           example: "19ba06d2-629f-11eb-ae93-0242ac130002"
           description: "UUID that identifies a user."
 
+    help:
+      type: object
+      properties:
+        helpId:
+          type: string
+          example: "19ba06d2-629f-11eb-ae93-0242ac130002"
+          description: "UUID that identifies a help."
+        userId:
+          type: string
+          example: "19ba06d2-629f-11eb-ae93-0242ac130002"
+          description: "UUID that identifies a user."
+        title:
+          type: string
+          example: "My cat is stuck in a tree."
+          description: "Title of the help you need."
+        description:
+          type: string
+          example: "It is a full grown bengal tiger. Please bring a tranq gun."
+          description: "Description of help you need."
+
+    addHelpRequest:
+      type: object
+      properties:
+        title:
+          type: string
+          example: "My cat is stuck in a tree."
+          description: "Title of the help you need."
+        description:
+          type: string
+          example: "My cat is stuck in a tree."
+          description: "It is a full grown bengal tiger. Please bring a tranq gun."
+        userId:
+          type: string
+          example: "19ba06d2-629f-11eb-ae93-0242ac130002"
+          description: "UUID that is requesting this help."
+
+    addHelpResponse:
+      type: object
+      properties:
+        helpId:
+          type: string
+          example: "19ba06d2-629f-11eb-ae93-0242ac130002"
+          description: "UUID that identifies the request."
 
     organization:
         type: object

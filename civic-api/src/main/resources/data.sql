@@ -1,1 +1,4 @@
 insert into user (User_ID, first_name, last_name, email, zip, organization_id, password, points, create_date) values ('b6ab3c46-62a3-11eb-ae93-0242ac130002', 'Joe', 'Momma', 'jakeomaits@email.com', '15108', '19ba06d2-629f-11eb-ae93-0242ac130002', 'hashme', 11, CURDATE());
+
+insert into help (HELP_ID, USER_ID, Description, TITLE, create_date) values ('b6ab3c46-62a3-11eb-ae93-0242ac130002', 'b6ab3c46-62a3-11eb-ae93-0242ac130004', 'My dogs foot is stuck in a sewer grate.', 'Please come asap because he has been there for 4 days.', CURDATE());
+insert into help (HELP_ID, USER_ID, Description, TITLE, create_date) values ('b6ab3c46-62a3-11eb-ae93-0242ac130003', 'b6ab3c46-62a3-11eb-ae93-0242ac130005', 'My dogs foot is stuck in a sewer grate.', 'description', CURDATE());
