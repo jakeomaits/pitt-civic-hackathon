@@ -1,13 +1,14 @@
 <template>
-  <b-container fluid>
+  <b-container fluid class="mb-4">
     <b-row >
-      <b-col><h5>Who Needs Help</h5></b-col>
-      <b-col
-        ><b-form-select
+      <b-col><h5>Completed Requests</h5></b-col>
+      <b-col>
+        <!-- <b-form-select
           v-model="filter.selected"
           :options="filter.options"
-        ></b-form-select
-      ></b-col>
+        >
+        </b-form-select> -->
+      </b-col>
     </b-row>
     <b-row class="mt-2">
       <Help
@@ -22,7 +23,7 @@
 <script>
 import Help from './Help.vue'
 export default {
-  name: "Feed",
+  name: "UserFeed",
   components: {
     Help
   },
