@@ -4,18 +4,17 @@
     :title=help.description
     img-src="https://mymodernmet.com/wp/wp-content/uploads/2018/01/bailey-dog-meme-2.jpg"
     img-alt="Image"
-    tag="helpRequest"
     style="max-width: 12rem;"
     class="mb-2 rounded"
   >
     <div class="description">
       "{{help.title}}"
     </div>
-    <requestor>
-      <div>
+    <div class="user">
+      
       {{user.firstName + " " + user.lastName}}
-      </div>
-    </requestor>
+      
+    </div>
   </b-card>
 </template>
 
@@ -30,7 +29,7 @@ export default {
     };
   },
   async created() {
-    console.log('Calling civic API for person data');
+    console.log('Calling civic API for user data');
     const response = await CIVIC_API.get('/user/' + this.help.userId);
     this.user = response.data;
   },
@@ -42,9 +41,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-/* .card {
-  
-} */
 
 .rounded {
   border-radius: 2rem!important;
@@ -74,7 +70,7 @@ export default {
   text-align: left;
 }
 
-requestor {
+.user {
   text-align: right;
   font-size:.8rem;
   font-weight: bold;
