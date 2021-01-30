@@ -4,8 +4,10 @@ import com.dsg.hackathon.civicapi.api.HelpsApi;
 import com.dsg.hackathon.civicapi.dto.Help;
 import com.dsg.hackathon.civicapi.dto.HelpsResponse;
 import com.dsg.hackathon.civicapi.repository.HelpRepository;
+import org.apache.logging.log4j.util.Strings;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,15 +35,25 @@ public class HelpsApiController implements HelpsApi {
 
     @Override
     public ResponseEntity<HelpsResponse> getHelps(@Valid String userId) {
-        Optional<List<com.dsg.hackathon.civicapi.model.Help>> helps = helpRepository.findByUserIdOrderByCreateDateDesc(userId);
+
+        List<com.dsg.hackathon.civicapi.model.Help> helps = new ArrayList<com.dsg.hackathon.civicapi.model.Help>();
+
+        if (Strings.isNotBlank(userId))
+        {
+            Optional<List<com.dsg.hackathon.civicapi.model.Help>> optionalHelps = helpRepository.findByUserIdOrderByCreateDateDesc(userId);
+            helps.addAll(optionalHelps.get());
+        }
+        else
+        {
+             helps = helpRepository.findAll(Sort.by(Sort.Direction.DESC, "createDate"));
+        }
+
         com.dsg.hackathon.civicapi.dto.Help dtoHelp;
         List<com.dsg.hackathon.civicapi.dto.Help> dtoHelps = new ArrayList<Help>();
 
-        if (helps.isPresent()) {
-            for(com.dsg.hackathon.civicapi.model.Help help : helps.get()){
-                dtoHelp = modelMapper.map(help, com.dsg.hackathon.civicapi.dto.Help.class);
-                dtoHelps.add(dtoHelp);
-            }
+        for(com.dsg.hackathon.civicapi.model.Help help : helps){
+            dtoHelp = modelMapper.map(help, com.dsg.hackathon.civicapi.dto.Help.class);
+            dtoHelps.add(dtoHelp);
         }
 
         if (!dtoHelps.isEmpty()) {
