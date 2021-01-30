@@ -1,12 +1,11 @@
 <template>
   <b-container fluid>
     <img alt="Vue logo" src="../assets/logo.png" />
-    <h4>Pittsburgh Civic Hackathon UI</h4>
+    <h4>Profile</h4>
     <b-card bg-variant="light" class="mb-2">
-      <b-form @submit="onSubmit">
+      <b-form >
         <b-form-group
           label-cols-lg="3"
-          label="Person"
           label-size="lg"
           label-class="font-weight-bold pt-0"
           class="mb-0"
@@ -18,7 +17,7 @@
             label-cols-sm="3"
             label-align-sm="right"
           >
-            <b-form-input id="person-firstname" v-model="personForm.firstName"></b-form-input>
+            {{ personForm.firstName }}
           </b-form-group>
 
           <b-form-group
@@ -27,7 +26,8 @@
             label-cols-sm="3"
             label-align-sm="right"
           >
-            <b-form-input id="person-lastname" v-model="personForm.lastName"></b-form-input>
+            {{ personForm.lastName }}
+
           </b-form-group>
 
           <b-form-group
@@ -36,16 +36,7 @@
             label-cols-sm="3"
             label-align-sm="right"
           >
-            <b-form-input id="person-email" v-model="personForm.email"></b-form-input>
-          </b-form-group>
-
-          <b-form-group
-            label="Password:"
-            label-for="person-password"
-            label-cols-sm="3"
-            label-align-sm="right"
-          >
-            <b-form-input id="person-password" v-model="personForm.password" type="password"></b-form-input>
+            {{ personForm.email }}
           </b-form-group>
 
           <b-form-group
@@ -54,7 +45,7 @@
             label-cols-sm="3"
             label-align-sm="right"
           >
-            <b-form-input id="person-phone" v-model="personForm.phone"></b-form-input>
+            {{ personForm.phone }}
           </b-form-group>
 
           
@@ -64,7 +55,7 @@
             label-cols-sm="3"
             label-align-sm="right"
           >
-            <b-form-input id="person-zip" v-model="personForm.zip"></b-form-input>
+            {{ personForm.zip }}
           </b-form-group>
 
 
@@ -74,45 +65,38 @@
             label-cols-sm="3"
             label-align-sm="right"
           >
-            <b-form-input id="person-org" v-model="personForm.organzation"></b-form-input>
+            {{ personForm.organization }}
           </b-form-group>
 
 
 
         </b-form-group>
-        <b-button type="submit" variant="primary">Submit</b-button>
       </b-form>
-    </b-card>
-    <b-card
-      v-for="person of people"
-      v-bind:key="person.personId"
-      :title="person.firstName + ' ' + person.lastName"
-      :sub-title="'ID = ' + person.personId"
-    >
     </b-card>
   </b-container>
 </template>
 
 <script>
-import { CIVIC_API } from "../http-common";
+//import { CIVIC_API } from "../http-common";
 
 export default {
   name: "Person",
   data() {
     return {
       personForm: {
-        personId: "",
-        firstName: "",
-        lastName: "",
-        email: "",
+        personId: "b6ab3c46-62a3-11eb-ae93-0242ac130002",
+        firstName: "Dennis",
+        lastName: "Kertis",
+        email: "souplover@gmail.com",
         password: "",
-        zip: "",
-        phone: "",
-        organizationId: "",
+        zip: "15108",
+        phone: "7242731234",
+        organization: "Dick's Sporting Goods",
       },
       people: [],
     };
-  },
+  }
+  /*,
   async created() {
     console.log('Calling civic API');
     const personOne = await CIVIC_API.get('1');
@@ -126,7 +110,7 @@ export default {
       console.log('Person created');
       console.log(personPost);
     },
-  },
+  },*/
 };
 </script>
 
