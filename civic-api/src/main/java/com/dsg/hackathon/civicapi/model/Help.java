@@ -10,6 +10,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.net.URI;
 import java.util.Date;
 
 @Entity
@@ -31,6 +32,18 @@ public class Help {
 
     @Column(name = "USER_ID", updatable = false, nullable = false)
     private String userId;
+
+    @Column(name = "ZIP", updatable = false, nullable = false)
+    private String zip;
+
+    @Column(name = "REQUESTED_DATE", updatable = false, nullable = false)
+    private String requestedDate;
+
+    @Column(name = "HELP_TYPE", updatable = false, nullable = false)
+    private String helpType;
+
+    @Column(name = "IMAGE_URL", updatable = false, nullable = false, length = 2048)
+    private String imageUrl;
 
     @Column(name = "CREATE_DATE", updatable = false, nullable = false)
     @CreationTimestamp

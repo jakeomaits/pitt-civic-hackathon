@@ -240,6 +240,23 @@ components:
           type: string
           example: "It is a full grown bengal tiger. Please bring a tranq gun."
           description: "Description of help you need."
+        zip:
+          type: string
+          example: "15108"
+          description: "The zip code that corresponds to the location of the help."
+        requestedDate:
+          type: string
+          example: "2020-01-30"
+          description: "The date in which this help should be completed."
+        helpType:
+          type: string
+          example: "Home Repair"
+          description: "The type of help being requested."
+        imageUrl:
+          type: string
+          description: "An image that can help the volunteers understand what needs done."
+          example: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.meowingtons.com%2Fblogs%2Flolcats%2Fwhy-cats-get-stuck-in-trees-and-what-to-do-when-it-happens&psig=AOvVaw2HGr6-eWflr4L6EW5UJIxk&ust=1612119678737000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCPjGiP6rxO4CFQAAAAAdAAAAABAD"
+
 
     helpsResponse:
         type: object
@@ -253,18 +270,36 @@ components:
     addHelpRequest:
       type: object
       properties:
+        userId:
+          type: string
+          example: "19ba06d2-629f-11eb-ae93-0242ac130002"
+          description: "UUID that identifies a user."
         title:
           type: string
           example: "My cat is stuck in a tree."
           description: "Title of the help you need."
         description:
           type: string
-          example: "My cat is stuck in a tree."
-          description: "It is a full grown bengal tiger. Please bring a tranq gun."
-        userId:
+          example: "It is a full grown bengal tiger. Please bring a tranq gun."
+          description: "Description of help you need."
+        zip:
           type: string
-          example: "19ba06d2-629f-11eb-ae93-0242ac130002"
-          description: "UUID that is requesting this help."
+          example: "15108"
+          description: "The zip code that corresponds to the location of the help."
+        requestedDate:
+          type: string
+          format: date
+          example: "2020-01-30"
+          description: "The date in which this help should be completed."
+        helpType:
+          type: string
+          example: "Home Repair"
+          description: "The type of help being requested."
+        imageUrl:
+          type: string
+          description: "An image that can help the volunteers understand what needs done."
+          example: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.meowingtons.com%2Fblogs%2Flolcats%2Fwhy-cats-get-stuck-in-trees-and-what-to-do-when-it-happens&psig=AOvVaw2HGr6-eWflr4L6EW5UJIxk&ust=1612119678737000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCPjGiP6rxO4CFQAAAAAdAAAAABAD"
+          format: uri
 
     addHelpResponse:
       type: object

@@ -10,7 +10,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.persistence.EntityNotFoundException;
 import javax.validation.Valid;
+import java.util.Optional;
 import java.util.UUID;
 
 @RestController
@@ -40,14 +42,21 @@ public class HelpApiController implements HelpApi {
 
     @Override
     public ResponseEntity<Help> getHelp(String helpId) {
-        com.dsg.hackathon.civicapi.model.Help help = helpRepository.getOne(helpId);
-        if (help != null) {
-            com.dsg.hackathon.civicapi.dto.Help dtoUser = modelMapper.map(help, com.dsg.hackathon.civicapi.dto.Help.class);
-            return new ResponseEntity<Help>(dtoUser, HttpStatus.OK);
+        try {
+            Optional<com.dsg.hackathon.civicapi.model.Help> help = helpRepository.findByHelpId(helpId);
+
+            if (help.isPresent()){
+                com.dsg.hackathon.civicapi.dto.Help dtoUser = modelMapper.map(help.get(), com.dsg.hackathon.civicapi.dto.Help.class);
+                return new ResponseEntity<Help>(dtoUser, HttpStatus.OK);
+            }
+            else
+            {
+                return new ResponseEntity<Help>(new Help(), HttpStatus.NOT_FOUND);
+            }
         }
-        else
+        catch (Exception ex)
         {
-            return new ResponseEntity<Help>(new Help(), HttpStatus.NOT_FOUND);
+            return new ResponseEntity<Help>(new Help(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 }

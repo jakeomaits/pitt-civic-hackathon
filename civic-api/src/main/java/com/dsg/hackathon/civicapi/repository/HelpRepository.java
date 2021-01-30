@@ -10,4 +10,6 @@ public interface HelpRepository extends JpaRepository<Help, String> {
 
     Optional<List<Help>> findByUserIdOrderByCreateDateDesc(String userId);
 
+    Optional<Help> findByHelpId(String helpId);
+
 }
