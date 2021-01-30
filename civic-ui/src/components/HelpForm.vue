@@ -2,7 +2,7 @@
 //import imageUploader from "./ImageUploader";
 import { CIVIC_API } from "../http-common";
 import HelpCategory from "./HelpCategory";
-import Datepicker from 'vuejs-datepicker';
+
 
 export default {
   name: "HelpForm",
@@ -38,7 +38,7 @@ export default {
   components: {
     //imageUploader: imageUploader,
     HelpCategory: HelpCategory,
-    Datepicker
+   
   }
 };
 </script>
@@ -47,9 +47,20 @@ export default {
   <b-container fluid>
     <h2>What's your reqest?</h2>
     <b-form @submit="onSubmit">
-      <img src="../assets/logo.png" />
+      <b-form-group
+        label="Upload Image"
+        label-for="help-title"
+        label-cols-sm="3"
+        label-align-sm="right"
+      >
+        <img src="../assets/logo.png" />
+      </b-form-group>
 
-      <b-form-group label="What type of assistanc do you need? " label-for="help-title" label-cols-sm="3" label-align-sm="right">
+      <b-form-group label-cols="4" label-cols-lg="2" label-align="right" 
+        label="What type of assistanc do you need? "
+        label-for="help-title"
+
+      >
         <HelpCategory />
       </b-form-group>
 
@@ -70,17 +81,25 @@ export default {
           rows="3"
           max-rows="6"
         ></b-form-textarea>
-
       </b-form-group>
       <span>
-        <b-form-group label="Zip Code" label-for="help-zip" label-cols-sm="3" label-align-sm="right">
-        <b-form-input id="zip" v-model="helpForm.zip"></b-form-input>
-      </b-form-group>
+        <b-form-group
+          label="Zip Code"
+          label-for="help-zip"
+          label-cols-sm="3"
+          label-align-sm="right"
+        >
+          <b-form-input id="zip" v-model="helpForm.zip"></b-form-input>
+        </b-form-group>
 
-      <b-form-group label="When do I need help ?" label-for="help-date" label-cols-sm="3" label-align-sm="right">
-        <Datepicker id="requestDate" v-model="helpForm.requestDate"></Datepicker>
-    
-      </b-form-group>
+        <b-form-group
+          label="When do I need help ?"
+          label-for="help-date"
+          label-cols-sm="3"
+          label-align-sm="right"
+        >
+          <b-form-datepicker id="example-datepicker" v-model="value" class="mb-2"></b-form-datepicker>
+        </b-form-group>
       </span>
       <b-button type="submit" variant="primary">Submit</b-button>
     </b-form>
