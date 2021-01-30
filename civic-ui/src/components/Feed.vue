@@ -10,20 +10,22 @@
       ></b-col>
     </b-row>
     <b-row class="mt-2">
-      <b-card
+      <Help
         v-for="help of helps"
         v-bind:key="help.id"
-        :title="help.title"
-        :sub-title="help.description"
-      >
-      </b-card>
+        :help="help"
+      />
     </b-row>
   </b-container>
 </template>
 
 <script>
+import Help from './Help.vue'
 export default {
   name: "Feed",
+  components: {
+    Help
+  },
   data() {
     return {
       filter: {
@@ -41,17 +43,20 @@ export default {
           title: "Grillmarks",
           description:
             "Accidentially burned my foot on a George Foreman grill. Need someone to drive me to the hospital!",
+          location: "Mt Lebanon",
         },
         {
           id: 2,
           title: "Jello",
           description: "Someone put my stapler inside Jello. Please help!",
+          location: "Hankey Farms",
         },
         {
           id: 3,
           title: "Marathon",
           description:
             "Can someone pick up some fettucine alfredo for me? I have a marathon later and need to carb load.",
+          location: "South Hills",
         },
       ],
     };

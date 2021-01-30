@@ -4,7 +4,7 @@
   <b-card
     :title=help.title
     tag="helpRequest"
-    style="max-width: 20rem;"
+    style="max-width: 50rem;"
     class="mb-2"
   >
     <b-card-text>
