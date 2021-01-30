@@ -114,6 +114,31 @@ paths:
         500:
           $ref: '#/components/responses/Exception'
 
+  /helps:
+    get:
+      tags:
+        - User
+      summary: "Gets a list of helps"
+      operationId: "getHelps"
+      parameters:
+        - name: userId
+          in: query
+          description: "The user id of the user that submitted the helps you'd like to retrieve."
+          required: false
+          schema:
+            type: string
+      responses:
+        200:
+          description: "Returns all matching helps."
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/helpsResponse'
+        400:
+          $ref: '#/components/responses/BadRequest'
+        500:
+          $ref: '#/components/responses/Exception'
+
 components:
 
   #############################################################
@@ -215,6 +240,15 @@ components:
           type: string
           example: "It is a full grown bengal tiger. Please bring a tranq gun."
           description: "Description of help you need."
+
+    helpsResponse:
+        type: object
+        description: "Collection of helps that meet the specified search criteria."
+        properties:
+          helps:
+            type: array
+            items:
+              $ref: '#/components/schemas/help'
 
     addHelpRequest:
       type: object
