@@ -11,14 +11,6 @@
           label-class="font-weight-bold pt-0"
           class="mb-0"
         >
-          <b-form-group
-            label="ID:"
-            label-for="person-id"
-            label-cols-sm="3"
-            label-align-sm="right"
-          >
-            <b-form-input id="person-id" v-model="personForm.personId"></b-form-input>
-          </b-form-group>
 
           <b-form-group
             label="First Name:"
@@ -37,6 +29,56 @@
           >
             <b-form-input id="person-lastname" v-model="personForm.lastName"></b-form-input>
           </b-form-group>
+
+          <b-form-group
+            label="Email Address:"
+            label-for="person-emaii"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-input id="person-email" v-model="personForm.email"></b-form-input>
+          </b-form-group>
+
+          <b-form-group
+            label="Password:"
+            label-for="person-password"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-input id="person-password" v-model="personForm.password" type="password"></b-form-input>
+          </b-form-group>
+
+          <b-form-group
+            label="Phone Number:"
+            label-for="person-phone"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-input id="person-phone" v-model="personForm.phone"></b-form-input>
+          </b-form-group>
+
+          
+          <b-form-group
+            label="ZIP:"
+            label-for="person-zip"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-input id="person-zip" v-model="personForm.zip"></b-form-input>
+          </b-form-group>
+
+
+          <b-form-group
+            label="Organization:"
+            label-for="person-org"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-input id="person-org" v-model="personForm.organzation"></b-form-input>
+          </b-form-group>
+
+
+
         </b-form-group>
         <b-button type="submit" variant="primary">Submit</b-button>
       </b-form>
@@ -62,6 +104,11 @@ export default {
         personId: "",
         firstName: "",
         lastName: "",
+        email: "",
+        password: "",
+        zip: "",
+        phone: "",
+        organizationId: "",
       },
       people: [],
     };
