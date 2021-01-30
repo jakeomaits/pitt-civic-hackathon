@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"
+>
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.2.7.RELEASE</version>
+    <relativePath /> <!-- lookup parent from repository -->
+  </parent>
+  <groupId>com.dsg.hackathon</groupId>
+  <artifactId>civic-app</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>civic-app</name>
+  <packaging>pom</packaging>
+  <description>Springboot app for 2021 Pitt Civic Hackathon</description>
+
+  <properties>
+    <java.version>11</java.version>
+  </properties>
+
+  <modules>
+    <module>civic-api</module>
+    <module>civic-ui</module>
+  </modules>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>com.github.eirslett</groupId>
+          <artifactId>frontend-maven-plugin</artifactId>
+          <version>1.11.0</version>
+          <configuration>
+            <nodeVersion>v14.15.4</nodeVersion>
+            <npmVersion>6.14.11</npmVersion>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>com.heroku.sdk</groupId>
+          <artifactId>heroku-maven-plugin</artifactId>
+          <version>3.0.4</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+
+</project>  

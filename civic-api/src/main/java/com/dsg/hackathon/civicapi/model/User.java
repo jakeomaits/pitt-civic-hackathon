@@ -15,18 +15,33 @@ import java.util.UUID;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "PERSON")
+@Table(name = "USER")
 @Data
-public class Person {
+public class User {
     @Id
-    @Column(name = "PERSON_ID", updatable = false, nullable = false)
-    private String personId = UUID.randomUUID().toString();
+    @Column(name = "USER_ID", updatable = false, nullable = false)
+    private String userId;
 
     @Column(name = "FIRST_NAME", updatable = true, nullable = false)
     private String firstName;
 
     @Column(name = "LAST_NAME", updatable = true, nullable = false)
     private String lastName;
+
+    @Column(name = "EMAIL", updatable = true, nullable = false)
+    private String email;
+
+    @Column(name = "ZIP", updatable = true, nullable = false)
+    private String zip;
+
+    @Column(name = "ORGANIZATION_ID", updatable = true, nullable = false)
+    private String organizationId;
+
+    @Column(name = "PASSWORD", updatable = true, nullable = false)
+    private String password;
+
+    @Column(name = "POINTS", updatable = true, nullable = false)
+    private Integer points;
 
     @Column(name = "CREATE_DATE", updatable = false, nullable = false)
     @CreationTimestamp
