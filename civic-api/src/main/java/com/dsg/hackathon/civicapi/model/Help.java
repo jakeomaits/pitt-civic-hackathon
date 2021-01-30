@@ -6,12 +6,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import java.net.URI;
+import javax.persistence.*;
+import java.time.Duration;
+import java.time.LocalDate;
 import java.util.Date;
+
+import static java.time.temporal.ChronoUnit.DAYS;
 
 @Entity
 @Builder
@@ -45,7 +45,29 @@ public class Help {
     @Column(name = "IMAGE_URL", updatable = false, nullable = false, length = 2048)
     private String imageUrl;
 
+    @Column(name = "TIME_OF_DAY", updatable = false, nullable = false)
+    private String timeOfDay;
+
     @Column(name = "CREATE_DATE", updatable = false, nullable = false)
     @CreationTimestamp
     private Date createDate;
+
+    @Transient
+    private Integer daysRemaining;
+
+
+    @PostLoad
+    private void postLoad()
+    {
+        LocalDate dateBefore = LocalDate.parse(requestedDate);
+        //daysRemaining = (int)DAYS.between(dateBefore, LocalDate.now());
+       // daysRemaining = dateBefore.compareTo(LocalDate.now());
+        daysRemaining =  (int)Duration.between(dateBefore.atStartOfDay(), LocalDate.now().atStartOfDay()).toDays() *-1;
+
+        //if (!dateBefore.compareTo(LocalDate.now()))
+        //{
+        //    daysRemaining = daysRemaining*-1;
+        //}
+    }
+
 }
