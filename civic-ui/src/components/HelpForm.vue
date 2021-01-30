@@ -1,7 +1,8 @@
 <script>
 //import imageUploader from "./ImageUploader";
 import { CIVIC_API } from "../http-common";
-import HelpCategory from "./HelpCategory"
+import HelpCategory from "./HelpCategory";
+import Datepicker from 'vuejs-datepicker';
 
 export default {
   name: "HelpForm",
@@ -11,9 +12,9 @@ export default {
         userId: "",
         title: "",
         description: "",
-        zip:"",
-        requestedDate:"",
-        helpType:"",
+        zip: "",
+        requestedDate: "",
+        helpType: "",
         imageUrl: ""
       },
       hasImage: false,
@@ -36,27 +37,23 @@ export default {
   },
   components: {
     //imageUploader: imageUploader,
-    HelpCategory :HelpCategory
+    HelpCategory: HelpCategory,
+    Datepicker
   }
-
 };
-
-
 </script>
 
 <template>
   <b-container fluid>
     <h2>What's your reqest?</h2>
     <b-form @submit="onSubmit">
-      <img src="../assets/logo.png">
+      <img src="../assets/logo.png" />
 
-
-      <b-form-group label-for="help-title" label-cols-sm="3" label-align-sm="right">
-        <HelpCategory/>
+      <b-form-group label="What type of assistanc do you need? " label-for="help-title" label-cols-sm="3" label-align-sm="right">
+        <HelpCategory />
       </b-form-group>
-      
 
-      <b-form-group label="Title:" label-for="help-title" label-cols-sm="3" label-align-sm="right">
+      <b-form-group label="Title" label-for="help-title" label-cols-sm="3" label-align-sm="right">
         <b-form-input id="title" v-model="helpForm.title"></b-form-input>
       </b-form-group>
 
@@ -68,14 +65,23 @@ export default {
       >
         <b-form-textarea
           id="description"
-          v-model="text"
+          v-model="helpForm.description"
           placeholder="How can we help..."
           rows="3"
           max-rows="6"
         ></b-form-textarea>
 
-        <b-form-input id="description" v-model="helpForm.description"></b-form-input>
       </b-form-group>
+      <span>
+        <b-form-group label="Zip Code" label-for="help-zip" label-cols-sm="3" label-align-sm="right">
+        <b-form-input id="zip" v-model="helpForm.zip"></b-form-input>
+      </b-form-group>
+
+      <b-form-group label="When do I need help ?" label-for="help-date" label-cols-sm="3" label-align-sm="right">
+        <Datepicker id="requestDate" v-model="helpForm.requestDate"></Datepicker>
+    
+      </b-form-group>
+      </span>
       <b-button type="submit" variant="primary">Submit</b-button>
     </b-form>
   </b-container>
