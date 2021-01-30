@@ -16,46 +16,50 @@ servers:
 #############################################################
 
 paths:
-  /person:
+  /user:
     post:
       tags:
         - Person
-      summary: "Adds a Person"
-      operationId: "addPerson"
+      summary: "Add a User"
+      operationId: "addUser"
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/person'
+              $ref: '#/components/schemas/addUserRequest'
       responses:
         201:
           description: "added"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/addUserResponse'
         400:
           $ref: '#/components/responses/BadRequest'
         500:
           $ref: '#/components/responses/Exception'
 
-  /person/{personId}:
+  /user/{userId}:
     get:
       tags:
-        - Person
-      summary: "Gets a person"
-      operationId: "getPerson"
+        - User
+      summary: "Gets a user"
+      operationId: "getUser"
       parameters:
-        - name: personId
+        - name: userId
           in: path
-          description: "The primary key for the person you'd like to retrieve."
+          description: "The primary key for the user you'd like to retrieve."
           required: true
           schema:
             type: string
       responses:
         200:
-          description: "Returns a person."
+          description: "Returns a user."
           content:
             application/json:
               schema:
-                type: person
+                $ref: '#/components/schemas/user'
         400:
           $ref: '#/components/responses/BadRequest'
         500:
@@ -74,25 +78,41 @@ components:
     # DTOs ######################################################
     #############################################################
 
-    personRequest:
+    user:
       type: object
       properties:
+        userId:
+            type: string
+            example: "19ba06d2-629f-11eb-ae93-0242ac130002"
+            description: "UUID that identifies a user."
         firstName:
           type: string
-          example: "Smitty"
+          example: "Jake"
           description: "Description of firstName"
+        email:
+          type: string
+          example: "joesmith1234@gmail.com"
+          description: "The email address associated to the user."
         lastName:
           type: string
-          example: "Smith"
+          example: "Omaits"
           description: "Description of lastName"
+        phone:
+          type: string
+          example: "7242731234"
+        zip:
+          type: string
+          example: "15108"
+        points:
+          type: integer
+          example: 33
+        organizationId:
+            type: string
+            description: "UUID that identifies the org of which this user is a member. For future use, this may need to be changed to Many:1 but will remain 1:1, for now."
 
-    person:
+    addUserRequest:
       type: object
       properties:
-        personId:
-            type: string
-            example: "ABC123"
-            description: "Description of ID"
         firstName:
           type: string
           example: "Jake"
@@ -101,6 +121,46 @@ components:
           type: string
           example: "Omaits"
           description: "Description of lastName"
+        email:
+          type: string
+          example: "joesmith1234@gmail.com"
+          description: "The email address associated to the user."
+        phone:
+          type: string
+          example: "7242731234"
+        zip:
+          type: string
+          example: "15108"
+        organizationId:
+          type: string
+          example: "19ba06d2-629f-11eb-ae93-0242ac130002"
+          description: "UUID that identifies the org of which this user is a member. For future use, this may need to be changed to Many:1 but will remain 1:1, for now."
+        password:
+          type: string
+          description: "The password used to login the user. This value will not be returned on GET operations."
+          example: "Birr"
+
+    addUserResponse:
+      type: object
+      properties:
+        userId:
+          type: string
+          example: "19ba06d2-629f-11eb-ae93-0242ac130002"
+          description: "UUID that identifies a user."
+
+
+    organization:
+        type: object
+        properties:
+            organizationId:
+              type: string
+              example: "19ba06d2-629f-11eb-ae93-0242ac130002"
+              description: "UUID that identifies an organization."
+            description:
+              type: string
+              description: "The name of the organization"
+              example: "Coraoplis Church of Christ"
+
 
   #############################################################
   #todo: build out more comprehensive list of status codes and descriptions
