@@ -3,6 +3,7 @@
     <Header />
     <CompletedFeed />
     <Feed />
+    <StickyButtonHome />
   </div>
 </template>
 
@@ -11,6 +12,7 @@
 import Header from '@/components/Header.vue';
 import Feed from '@/components/Feed.vue';
 import CompletedFeed from '@/components/CompletedFeed.vue';
+import StickyButtonHome from '@/components/StickyButtonHome.vue';
 
 export default {
   name: 'Home',
@@ -18,6 +20,7 @@ export default {
     Header,
     Feed, 
     CompletedFeed,
+    StickyButtonHome
   }
 }
 </script>
