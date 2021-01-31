@@ -18,7 +18,8 @@
     "vue": "^2.6.11",
     "vue-clickaway": "^2.2.2",
     "vue-image-upload-resize": "^2.3.0",
-    "vue-router": "^3.2.0"
+    "vue-router": "^3.2.0",
+    "vuejs-datepicker": "^1.6.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",

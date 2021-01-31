@@ -127,6 +127,12 @@ paths:
           required: false
           schema:
             type: string
+        - name: completed
+          in: query
+          description: "Indicates whether you would the results to include completed or incomplete. Send True/False. Do not include if you do not want to filter on this field.."
+          required: false
+          schema:
+            type: boolean
       responses:
         200:
           description: "Returns all matching helps."
@@ -264,6 +270,10 @@ components:
             type: integer
             description: "Number of days left to complete this help. This field is calculated from the requested date minus current date."
             example: "5"
+        completeDate:
+            type: string
+            description: "The date that the request was completed."
+            example: "2020-01-10"
 
     helpsResponse:
         type: object

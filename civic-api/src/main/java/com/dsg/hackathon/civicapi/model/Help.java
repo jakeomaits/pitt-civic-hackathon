@@ -48,6 +48,9 @@ public class Help {
     @Column(name = "TIME_OF_DAY", updatable = false, nullable = false)
     private String timeOfDay;
 
+    @Column(name = "COMPLETE_DATE", updatable = false)
+    private String completeDate;
+
     @Column(name = "CREATE_DATE", updatable = false, nullable = false)
     @CreationTimestamp
     private Date createDate;
