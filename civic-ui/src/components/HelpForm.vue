@@ -18,7 +18,7 @@ export default {
         zip: "",
         requestedDate: "",
         helpType: "",
-        imageUrl: "http://www.catsguru.com/wp-content/uploads/2011/03/cat-stuck-up-tree.jpg",
+        imageUrl: "https://www.woodpostpuller.com/wp-content/uploads/2014/09/Wood-Post-Puller-12-1024x768.jpg",
         imageData: ""
       },
       imageData: null,
