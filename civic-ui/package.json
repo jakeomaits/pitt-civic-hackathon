@@ -9,6 +9,7 @@
     "build-heroku": "vue-cli-service build --dest=target/classes/static"
   },
   "dependencies": {
+    "@kouts/vue-modal": "^2.0.1",
     "@progress/kendo-licensing": "^1.1.3",
     "@progress/kendo-vue-dropdowns": "^2.1.1",
     "@progress/kendo-vue-intl": "^2.1.1",

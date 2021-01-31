@@ -17,6 +17,7 @@
       @input="onSelectFile"
     >
   </div>
+ 
 </template>
 
 
@@ -24,7 +25,7 @@
 export default {
   data () {
     return {
-      imageData: null
+      imageData: ""
     }
   },
   methods: {
@@ -49,6 +50,7 @@ export default {
 
 <style scoped>
 .base-image-input {
+ 
   display: block;
   width: 200px;
   height: 200px;
@@ -57,6 +59,7 @@ export default {
   background-position: center center;
 }
 .placeholder {
+  
   background: #F0F0F0;
   width: 100%;
   height: 100%;
@@ -68,6 +71,7 @@ export default {
   font-family: Helvetica;
 }
 .placeholder:hover {
+  background-image: url("https://images.app.goo.gl/5mChhk7RRCdXbhpp6"); 
   background: #E0E0E0;
 }
 .file-input {

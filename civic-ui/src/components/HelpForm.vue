@@ -14,7 +14,7 @@ export default {
         zip: "",
         requestedDate: "",
         helpType: "",
-        imageUrl: "https://images.app.goo.gl/9CT512Aebrw5yeXY8",
+        imageUrl: "http://www.catsguru.com/wp-content/uploads/2011/03/cat-stuck-up-tree.jpg",
         imageData: ""
       },
       imageData: null,
@@ -43,14 +43,14 @@ export default {
     },
   },
   components: {
-    BaseImageInput
+    BaseImageInput,
   },
   
 };
 </script>
 
 <template>
-  <b-container fluid>
+  <b-container  class="mainContainer" fluid>
     <h2>What's your reqest?</h2>
     <b-form @submit="onSubmit">
 
@@ -134,49 +134,8 @@ a {
   margin-top: 4rem;
   margin-bottom: 4rem;
 }
-
-.image-preview {
-  width: 50%;
-  height: 100px;
-  float: left;
-  border-style: solid;
-}
-.file-upload-form {
-  margin-left: 50%;
-  height: 100px;
+.mainContainer{
+    border-radius:100px;
 }
 
-.preview {
-  max-width: 100%;
-  max-height: 100%;
-}
-
-.image-input {
-  display: block;
-  width: 200px;
-  height: 200px;
-  cursor: pointer;
-  background-size: cover;
-  background-position: center center;
-}
-
-.placeholder {
-  background: #f0f0f0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #333;
-  font-size: 18px;
-  font-family: Helvetica;
-}
-
-.placeholder:hover {
-  background: #e0e0e0;
-}
-
-.file-input {
-  display: none;
-}
 </style>
