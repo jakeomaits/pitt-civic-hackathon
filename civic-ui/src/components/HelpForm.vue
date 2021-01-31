@@ -1,6 +1,7 @@
 <script>
 import { CIVIC_API } from "../http-common";
 import BaseImageInput from "./BaseImageInput.vue"
+import router from '../router/index.js'
 
 export default {
   name: "HelpForm",
@@ -38,6 +39,7 @@ export default {
       const helpPost = await CIVIC_API.post("/help", this.helpForm);
       console.log("Person created");
       console.log(helpPost);
+      router.push("/");
     },
   },
   components: {
