@@ -14,7 +14,6 @@
 
 <script>
 // @ is an alias to /src
-// import Header from '@/components/Header.vue';
 import NavSignOut from '@/components/NavSignOut.vue';
 import Bio from '@/components/Bio.vue';
 import Feed from '@/components/Feed.vue';
