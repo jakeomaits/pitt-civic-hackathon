@@ -6,8 +6,8 @@
         <br/>
         <span class="site-name">Sammy</span>
         <b-avatar fvariant="light" class="mr-2 avatar"/>
-        <span class="username"> Johnny Appleseed</span>
-        <span class="bio">I plant apple trees across the land.</span>
+        <span class="username">Betty Aberlin</span>
+        <span class="bio">Has a soft spot for children and animals.</span>
         <a class="edit-profile">Edit Profile</a>
         <b-col><img src="../assets/pencil.png" class="pencil"/></b-col>
         

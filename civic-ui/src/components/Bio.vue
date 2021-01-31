@@ -1,10 +1,10 @@
 <template>
     <div class="bio-parent">
-        <b-avatar fvariant="light" class="mr-2 avatar"/>
-        <span class="username"> Johnny Appleseed</span>
-        <span class="bio">I plant apple trees across the land.</span>
-        <a class="edit-profile">Edit Profile</a>
-        <b-col><img src="../assets/pencil.png" class="pencil"/></b-col>
+      <div style="float: left;"><img src="../assets/lg_profile_orange.png" /></div>
+        <span class="username">Betty Aberlin</span>
+        <span class="bio" >"Has a soft spot for children and animals."</span>
+
+        <div style="float: right; padding-top:80px; margin-right: 10px; font-size: 14px;text-decoration: underline;"><img src="../assets/pencil.png" class="pencil" />Edit</div>
         
     </div>
 </template>
@@ -16,10 +16,11 @@ export default {
 
 <style>
     .bio-parent {
-        height: 150px;
+        height: 110px;
         margin-bottom: 0px;
+      background: #E6F2F6;
     }
-
+/*
     .join {
         position:absolute;
         left: 2%;
@@ -36,7 +37,7 @@ export default {
         top: 15px;
         left: 165px;
         font-size: 26px;
-    }
+    }*/
 
     .avatar {
         position:absolute;
@@ -48,7 +49,6 @@ export default {
     }
 
     .username {
-        font-weight: bold;
         font-size: 20px;
         position: absolute;
         top: 70px;
@@ -56,11 +56,10 @@ export default {
     }
 
     .bio {
-        position: absolute;
         font-size: 14px;
-        position: absolute;
-        top: 115px;
-        left: 110px;
+      position: absolute;
+      top: 105px;
+      left: 120px;
     }
 
 
@@ -73,11 +72,8 @@ export default {
     }
 
     .pencil {
-        position: absolute;
-        height: 14px;
-        width: 14px;
-        top: 101px;
-        left: 85px;
+        height: 15px;
+        width: 15px;
     }
 
 </style>
