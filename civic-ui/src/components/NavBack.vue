@@ -1,6 +1,7 @@
 <template>
         <div class="nav-back">
-            <a @click="$router.push('/')" class="back">Back</a>
+            <span @click="$router.push('/')" class="back">Back</span>
+            <img src="../assets/back.png" @click="$router.push('/')" class="back-icon"/>
         </div>
 </template>
 <script>
@@ -17,10 +18,16 @@ export default {
     }
 
     .back {
-        font-size: 18px;
+        font-size: 20px;
+        position: absolute;
+        left: 30px;
+        top: 8px;
+    }
+    .back-icon{
+        height: 18px;
         position: absolute;
         left: 10px;
-        top: 10px;
+        top: 12px;
     }
 
 </style>

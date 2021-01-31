@@ -39,41 +39,4 @@ export default {
         font-size: 26px;
     }*/
 
-    .avatar {
-        position:absolute;
-        height: 60px;
-        width: 60px;
-        left: 5%;
-        top: 55px;
-    
-    }
-
-    .username {
-        font-size: 20px;
-        position: absolute;
-        top: 70px;
-        left: 120px;
-    }
-
-    .bio {
-        font-size: 14px;
-      position: absolute;
-      top: 105px;
-      left: 120px;
-    }
-
-
-    .edit-profile {
-        position: absolute;
-        font-size: 12px;
-        position: absolute;
-        top: 125px;
-        left: 23px;
-    }
-
-    .pencil {
-        height: 15px;
-        width: 15px;
-    }
-
 </style>

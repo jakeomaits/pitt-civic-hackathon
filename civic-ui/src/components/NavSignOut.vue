@@ -13,6 +13,7 @@ export default {
 
     .nav-sign-out {
         position: relative;
+        height: 50px;
 
     }
 
