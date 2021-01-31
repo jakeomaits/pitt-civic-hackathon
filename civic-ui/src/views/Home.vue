@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <UserFeed />
+    <CompletedFeed />
     <Feed />
   </div>
 </template>
@@ -8,13 +8,13 @@
 <script>
 // @ is an alias to /src
 import Feed from '@/components/Feed.vue'
-import UserFeed from '@/components/UserFeed.vue'
+import CompletedFeed from '@/components/CompletedFeed.vue'
 
 export default {
   name: 'Home',
   components: {
     Feed, 
-    UserFeed
+    CompletedFeed
   }
 }
 </script>
