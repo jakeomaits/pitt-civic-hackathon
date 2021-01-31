@@ -274,6 +274,14 @@ components:
             type: string
             description: "The date that the request was completed."
             example: "2020-01-10"
+        comments:
+            type: string
+            description: "Freetext input from requester about the user that completed the help."
+            example: "Jake was great. He really helped me out."
+        completedBy:
+            type: string
+            description: "The ID of the person that completed this help."
+            example: "b6ab3c46-62a3-11eb-ae93-0242ac130066"
 
     helpsResponse:
         type: object
