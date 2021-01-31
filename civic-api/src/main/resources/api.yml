@@ -290,6 +290,10 @@ components:
             type: string
             description: "Indicates if the current user has cheered this help."
             example: "True"
+        completedUser:
+          $ref: '#/components/schemas/user'
+        requestedUser:
+          $ref: '#/components/schemas/user'
 
     helpsResponse:
         type: object

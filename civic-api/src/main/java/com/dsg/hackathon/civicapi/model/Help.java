@@ -70,6 +70,14 @@ public class Help {
     @Column(name = "CHEER_MESSAGE")
     private String cheerMessage;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "USER_ID", insertable = false, updatable = false)
+    private User requestedUser;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "COMPLETED_BY", insertable = false, updatable = false)
+    private User completedUser;
+
     @PostLoad
     private void postLoad()
     {
