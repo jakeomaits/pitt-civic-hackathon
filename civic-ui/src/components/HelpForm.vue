@@ -51,6 +51,9 @@ export default {
 
 <template>
   <b-container  class="mainContainer" fluid>
+    
+    <b-button type="text" variant="primary">Back</b-button>
+
     <h2>What's your reqest?</h2>
     <b-form @submit="onSubmit">
 
@@ -106,7 +109,7 @@ export default {
           <b-form-datepicker id="example-datepicker" v-model="helpForm.requestedDate" class="mb-2"></b-form-datepicker>
         </b-form-group>
       </span>
-      <b-button type="submit" variant="primary">Submit</b-button>
+      <b-button type="submit" variant="primary">Post Request</b-button>
     </b-form>
   </b-container>
 </template>
