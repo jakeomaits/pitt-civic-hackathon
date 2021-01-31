@@ -20,6 +20,23 @@ export default {
         margin-bottom: 0px;
       background: #E6F2F6;
     }
+    .username {
+    font-size: 20px;
+    position: absolute;
+    top: 135px;
+    left: 120px;
+    }
+    .bio {
+  font-size: 14px;
+  position: absolute;
+  top: 175px;
+  left: 120px;
+    }
+
+    .pencil {
+      height: 14px;
+      width: 15px;
+    }
 /*
     .join {
         position:absolute;
