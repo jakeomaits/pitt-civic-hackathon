@@ -39,8 +39,7 @@ export default {
     },
     async onSubmit(event) {
       event.preventDefault();
-      const url = CIVIC_API + "help";
-      const helpPost = await url.post("", this.helpForm);
+      const helpPost = await CIVIC_API + "help".post("/help", this.helpForm);
       console.log("Person created");
       console.log(helpPost);
     }
