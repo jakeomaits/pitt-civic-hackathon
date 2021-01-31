@@ -3,12 +3,12 @@
   <b-card
   class="rounded">
     <b-card-header
-      header-bg-variant="dark"
-      header-text-variant="white"
+      header-text-variant="black"
+      v-bind:style="{backgroundColor: '#' + help.imageColor}"
     >
-      <b-avatar variant="light" class="mr-2"></b-avatar>
-      <span class="user">{{ help.completedUser.firstName + " " + help.completedUser.lastName }} </span>
-      <!-- <span class="org">({{ help.completedUser.organizationId }})</span> -->
+      <img :src="require('../assets/' + profImg())" class="profileImg">
+      <div class="user">{{ help.completedUser.firstName + " " + help.completedUser.lastName }} </div>
+      <div class="org">({{ help.completedUser.organizationId }})</div>
     </b-card-header>
     <b-card-title class="pt-2 pl-2">
       Helped with {{ help.helpType }}
@@ -44,6 +44,9 @@ export default {
     imgName: function() {
       return this.cheer.selected ? 'selected_clap.png' : 'unselected_clap.png';
     },
+    profImg: function() {
+      return this.help.imageName;
+    },
     handleClick: function () {
       this.cheer.selected = !this.cheer.selected;
       this.cheer.selected ? this.cheer.count++ : this.cheer.count--;
@@ -76,6 +79,7 @@ export default {
   border-top-right-radius: 2rem!important;
   text-align: left;
   line-height: 1rem;
+  height: 73px;
 }
 
 .card-footer {
@@ -130,6 +134,12 @@ export default {
   text-decoration: underline;
   padding-right: 2px;
   cursor: pointer;
+}
+
+.profileImg {
+  float: left;
+  height: 60px;
+  width: 65px;
 }
 
 </style>
