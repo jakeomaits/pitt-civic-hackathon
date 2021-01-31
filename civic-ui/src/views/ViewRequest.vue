@@ -4,12 +4,15 @@
     <button v-on:click=back>Back</button>
   </div>
     <h1>Olwaz Placeholder</h1>
-  <div>
+  <div style="padding-bottom: 30px">
     <img width="100%" src="../assets/ViewRequest.png" />
-
-  <button >Cancel Request</button>
-  <button v-on:click="fulfill">Request Fulfilled</button>
   </div>
+    <b-container id="button-container" fluid class="fixed-bottom p-2">
+      <b-row>
+        <b-col><b-button squared  class="secondary-button">Cancel Request</b-button></b-col>
+        <b-col><b-button squared class="main-button" v-on:click="fulfill">Request Fulfilled</b-button></b-col>
+      </b-row>
+    </b-container>
   </div>
 </template>
 
@@ -45,18 +48,28 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
+#button-container {
+  background: #FFFFFF;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+
+.main-button {
+  height: 42px;
+  width: 189px;
+  background: #007DA3;
+  margin-left: 12px;
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
+
+.secondary-button {
+  height: 42px;
+  width: 189px;
+  background: #FFFFFF;
+  color: #007DA3;
+  border-color: #007DA3;
+  margin-right: 12px;
 }
-a {
-  color: #42b983;
+
+.col {
+  padding-left: 0px;
+  padding-right: 0px;
 }
 </style>
