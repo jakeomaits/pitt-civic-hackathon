@@ -90,7 +90,6 @@ export default {
   display: -webkit-box;
   overflow: hidden !important;
   text-overflow: ellipsis;
-  -webkit-line-clamp: 4;
   text-align: left;
   
 }
