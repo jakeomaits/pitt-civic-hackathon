@@ -61,7 +61,7 @@ export default {
         label-cols-sm="3"
         label-align-sm="right"
       >
-        <img width="200" height="200" src="https://images.app.goo.gl/9CT512Aebrw5yeXY8 />
+        <img width="200" height="200" src="https://images.app.goo.gl/9CT512Aebrw5yeXY8" />
       </b-form-group>
 
       <b-form-group
