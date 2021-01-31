@@ -4,8 +4,8 @@
     <button v-on:click=back>Back</button>
   </div>
     <h1>Olwaz Placeholder</h1>
-  <div style="padding-bottom: 30px">
-    <img width="100%" src="../assets/ViewRequest.png" />
+  <div style="padding-bottom: 80px">
+    <img width="100%" src="../assets/ViewRequest.jpg" />
   </div>
     <b-container id="button-container" fluid class="fixed-bottom p-2">
       <b-row>
