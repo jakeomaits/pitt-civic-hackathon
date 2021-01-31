@@ -21,7 +21,7 @@ import static java.time.temporal.ChronoUnit.DAYS;
 @Data
 public class Help {
     @Id
-    @Column(name = "HELP_ID", updatable = false, nullable = false)
+    @Column(name = "HELP_ID", nullable = false)
     private String helpId;
 
     @Column(name = "TITLE", updatable = true, nullable = false)
@@ -30,34 +30,39 @@ public class Help {
     @Column(name = "DESCRIPTION", updatable = true, nullable = false)
     private String description;
 
-    @Column(name = "USER_ID", updatable = false, nullable = false)
+    @Column(name = "USER_ID", nullable = false)
     private String userId;
 
-    @Column(name = "ZIP", updatable = false, nullable = false)
+    @Column(name = "ZIP", nullable = false)
     private String zip;
 
-    @Column(name = "REQUESTED_DATE", updatable = false, nullable = false)
+    @Column(name = "REQUESTED_DATE", nullable = false)
     private String requestedDate;
 
-    @Column(name = "HELP_TYPE", updatable = false, nullable = false)
+    @Column(name = "HELP_TYPE", nullable = false)
     private String helpType;
 
-    @Column(name = "IMAGE_URL", updatable = false, nullable = false, length = 2048)
+    @Column(name = "IMAGE_URL", nullable = false, length = 2048)
     private String imageUrl;
 
-    @Column(name = "TIME_OF_DAY", updatable = false, nullable = false)
+    @Column(name = "TIME_OF_DAY", nullable = false)
     private String timeOfDay;
 
-    @Column(name = "COMPLETE_DATE", updatable = false)
+    @Column(name = "COMPLETE_DATE")
     private String completeDate;
 
-    @Column(name = "CREATE_DATE", updatable = false, nullable = false)
+    @Column(name = "CREATE_DATE", nullable = false)
     @CreationTimestamp
     private Date createDate;
 
     @Transient
     private Integer daysRemaining;
 
+    @Column(name = "COMPLETED_BY")
+    private String completedBy;
+
+    @Column(name = "COMMENTS")
+    private String comments;
 
     @PostLoad
     private void postLoad()
