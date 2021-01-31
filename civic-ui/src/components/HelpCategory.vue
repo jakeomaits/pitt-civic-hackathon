@@ -1,55 +1,34 @@
 <template>
-  
-       <span class="border"> <dropdownlist class="border"
-            :data-items='categories'
-            :default-item="'Please choose'"
-        >
-        </dropdownlist></span>
-   
+  <div>
+    <b-form-select   v-model="selected" :options="options"></b-form-select>
+  </div>
 </template>
+
 <script>
-import { DropDownList } from '@progress/kendo-vue-dropdowns';
-
-export default {
-    name: "HelpCategory",
-    components: {
-        'dropdownlist': DropDownList
+  export default {
+    data() {
+      return {
+        selected: null,
+        options: [
+          { value: 1, text: 'Please select an option' },
+          { value: 2, text: 'This is First option' },
+          { value: 3, text: 'Selected Option' }
+        ]
+      }
     },
-    data: function () {
-        return {
-            categories: ['Home/ Repair', 
-                    'Child/Dependent Care',
-                    'Food/ Grocery',
-                    'Transportation',
-                    'Skill',
-                    'Medical',
-                    'Physical Good/ Donation'],
-        };
-    }
-};
-
+    methods: {
+          onSelect() {
+            this.$emit('selectData', this.selected);
+          }
+        }
+  }
 </script>
-<style>
-#fileInput {
-  display: none;
-}
-h1,
-h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-.my-8 {
-  margin-top: 4rem;
-  margin-bottom: 4rem;
-}
-</style>
+
+
+
+
+
+
+
+
+
