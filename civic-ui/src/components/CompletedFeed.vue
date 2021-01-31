@@ -1,7 +1,7 @@
 <template>
   <b-container fluid class="mt-4 mb-4">
     <b-row >
-      <h5>Mission Accomplished!</h5>
+      <h5 class="ml-2">Mission Accomplished!</h5>
     </b-row>
     <div class="hs">
     <b-row class="mt-2 ml-1">

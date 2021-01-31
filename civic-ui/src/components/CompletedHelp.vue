@@ -7,7 +7,8 @@
       header-text-variant="white"
     >
       <b-avatar variant="light" class="mr-2"></b-avatar>
-      <span class="user">{{ user.firstName }}</span>
+      <span class="user">{{ help.completedUser.firstName + " " + help.completedUser.lastName }} </span>
+      <!-- <span class="org">({{ help.completedUser.organizationId }})</span> -->
     </b-card-header>
     <b-card-title class="pt-2 pl-2">
       Helped with {{ help.helpType }}
@@ -19,7 +20,7 @@
       footer-bg-variant="light"
     >
       <b-row>
-        <b-col><img src="../assets/clap.png"/></b-col>
+        <b-col><img src="../assets/clap.png"/><span class="cheers">7 Cheers!</span></b-col>
         <b-col class="read-more">Read More</b-col>
       </b-row>
     </b-card-footer>
@@ -27,22 +28,10 @@
 </template>
 
 <script>
-import { CIVIC_API } from "../http-common";
 
 export default {
   name: "CompletedHelp",
-  props: ['help'],
-  data() {
-    return {
-      user: {}
-    };
-  },
-  async created() {
-    console.log('Calling civic API for user data');
-    const response = await CIVIC_API.get('/user/' + this.help.userId);
-    this.user = response.data;
-  },
-
+  props: ['help']
 }
 
 </script>
@@ -69,6 +58,7 @@ export default {
   border-top-left-radius: 2rem!important;
   border-top-right-radius: 2rem!important;
   text-align: left;
+  line-height: 1rem;
 }
 
 .card-footer {
@@ -98,7 +88,17 @@ export default {
   text-align: right;
   font-size:.8rem;
   font-weight: bold;
-  padding-top: 1;
+}
+
+.org {
+  text-align: right;
+  font-size:.5rem;
+  font-weight: bold;
+}
+
+.cheers {
+  font-size:.5rem;
+  margin-left: 3px;
 }
 
 .read-more {

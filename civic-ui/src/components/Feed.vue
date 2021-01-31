@@ -1,13 +1,7 @@
 <template>
   <b-container fluid class="mt-4 mb-4">
     <b-row >
-      <b-col><h5>Who Needs Help</h5></b-col>
-      <b-col
-        ><b-form-select
-          v-model="filter.selected"
-          :options="filter.options"
-        ></b-form-select
-      ></b-col>
+      <b-col><h5 class="ml-2">Requests</h5></b-col>
     </b-row>
     <b-row class="mt-2" v-for="chunk in helpsChunks" v-bind:key="chunk.id">
       <b-col v-for="help of chunk" v-bind:key="help.helpId">
@@ -72,5 +66,9 @@ li {
 }
 a {
   color: #42b983;
+}
+
+h5 {
+  text-align: left;
 }
 </style>
