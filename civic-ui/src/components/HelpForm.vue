@@ -63,7 +63,6 @@ export default {
     <div class="site-name">
       Olwaz
     </div>
-    <h2>What's your reqest?</h2>
     <b-form @submit="onSubmit">
 
 <div style="height: 100px; margin-bottom: 30px;">

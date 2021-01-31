@@ -4,7 +4,7 @@
     <div class="site-name">
       Olwaz
     </div>
-  <div style="padding-bottom: 30px">
+  <div style="margin-bottom: 80px">
     <img width="100%" src="../assets/ViewRequest.jpg" />
   </div>
     <b-container id="button-container" fluid class="fixed-bottom p-2">
