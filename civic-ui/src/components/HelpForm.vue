@@ -1,8 +1,10 @@
 <script>
 import { CIVIC_API } from "../http-common";
 import BaseImageInput from "./BaseImageInput.vue"
-import StickyButtonRequest from '@/components/StickyButtonRequest.vue';
+import NavBack from "./NavBack.vue"
+import SiteName from "./SiteName.vue"
 import router from '../router/index.js'
+
 
 export default {
   name: "HelpForm",
@@ -45,7 +47,9 @@ export default {
   },
   components: {
     BaseImageInput,
-    StickyButtonRequest
+    NavBack,
+    SiteName,
+
   },
   
 };
@@ -53,8 +57,9 @@ export default {
 
 <template>
   <b-container  class="mainContainer" fluid>
-    
-    <b-button type="text" variant="primary">Back</b-button>
+
+    <NavBack />
+    <SiteName />
 
     <h1>Olwaz Placeholder</h1>
     <b-form @submit="onSubmit">
