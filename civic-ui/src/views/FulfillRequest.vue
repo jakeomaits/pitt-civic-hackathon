@@ -1,11 +1,28 @@
 <template>
-    <img width="100%" src="../assets/ViewRequest.png" />
+  <div>
+    <div>
+      <button v-on:click=back>Back</button>
+    </div>
+    <h1>Olwaz Placeholder</h1>
+    <img width="100%" src="../assets/FulfillRequest.png" />
+  </div>
 </template>
 
 <script>
 
 export default {
+  methods: {
+    async back(event) {
+      event.preventDefault();
 
+      console.log('Mock Login');
+
+      //assign UUID for state management
+
+      //redirect
+      await this.$router.push('/ViewRequest')
+    }
+  },
 };
 </script>
 

@@ -1,11 +1,45 @@
 <template>
-    <img width="100%" src="../assets/FulfillRequest.png" />
+  <div>
+  <div>
+    <button v-on:click=back>Back</button>
+  </div>
+    <h1>Olwaz Placeholder</h1>
+  <div>
+    <img width="100%" src="../assets/ViewRequest.png" />
+
+  <button >Cancel Request</button>
+  <button v-on:click="fulfill">Request Fulfilled</button>
+  </div>
+  </div>
 </template>
 
 <script>
 
 export default {
+  name: "FulfillRequest",
+  methods: {
+    async fulfill(event) {
+      event.preventDefault();
 
+      console.log('Mock Login');
+
+      //assign UUID for state management
+
+      //redirect
+      await this.$router.push('/FulfillRequest')
+    },
+
+    async back(event) {
+      event.preventDefault();
+
+      console.log('Mock Login');
+
+      //assign UUID for state management
+
+      //redirect
+      await this.$router.push('/')
+    }
+  },
 };
 </script>
 
