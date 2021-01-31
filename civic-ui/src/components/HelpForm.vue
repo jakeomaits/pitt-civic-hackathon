@@ -8,7 +8,7 @@ export default {
   data() {
     return {
       helpForm: {
-        userId: "https://images.app.goo.gl/9CT512Aebrw5yeXY8",
+        userId: "b6ab3c46-62a3-11eb-ae93-0242ac130002",
         title: "",
         description: "",
         zip: "",
@@ -39,7 +39,7 @@ export default {
     },
     async onSubmit(event) {
       event.preventDefault();
-      const helpPost = await CIVIC_API + "help".post("/help", this.helpForm);
+      const helpPost = await CIVIC_API.post("/help", this.helpForm);
       console.log("Person created");
       console.log(helpPost);
     }
@@ -61,7 +61,7 @@ export default {
         label-cols-sm="3"
         label-align-sm="right"
       >
-        <img src="../assets/logo.png" />
+        <img width="200" height="200" src="https://images.app.goo.gl/9CT512Aebrw5yeXY8 />
       </b-form-group>
 
       <b-form-group
