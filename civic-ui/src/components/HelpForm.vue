@@ -1,6 +1,7 @@
 <script>
 import { CIVIC_API } from "../http-common";
 import BaseImageInput from "./BaseImageInput.vue"
+import StickyButtonRequest from '@/components/StickyButtonRequest.vue';
 import router from '../router/index.js'
 
 export default {
@@ -44,6 +45,7 @@ export default {
   },
   components: {
     BaseImageInput,
+    StickyButtonRequest
   },
   
 };
@@ -109,7 +111,7 @@ export default {
           <b-form-datepicker id="example-datepicker" v-model="helpForm.requestedDate" class="mb-2"></b-form-datepicker>
         </b-form-group>
       </span>
-      <b-button type="submit" variant="primary">Post Request</b-button>
+      <StickyButtonRequest />
     </b-form>
   </b-container>
 </template>
