@@ -1,5 +1,6 @@
 
 <template>
+  <a onclick="location.href='#/ViewRequest'">
   <b-card
     :title=help.title
     :img-src=help.imageUrl
@@ -17,6 +18,7 @@
       {{getRemainingTime()}}
     </div>
   </b-card>
+  </a>
 </template>
 
 <script>
@@ -33,6 +35,9 @@ export default {
     console.log('Calling civic API for user data');
     const response = await CIVIC_API.get('/user/' + this.help.userId);
     this.user = response.data;
+  },
+  async viewRequest() {
+    await this.$router.push('/ViewRequest')
   },
   methods: {
     getRemainingTime() {
