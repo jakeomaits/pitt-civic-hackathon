@@ -9,6 +9,10 @@ import java.util.Optional;
 public interface HelpRepository extends JpaRepository<Help, String> {
 
     Optional<List<Help>> findByUserIdOrderByCreateDateDesc(String userId);
+    Optional<List<Help>> findByUserIdAndCompleteDateIsNullOrderByCreateDateDesc(String userId);
+    Optional<List<Help>> findByUserIdAndCompleteDateIsNotNullOrderByCreateDateDesc(String userId);
+    Optional<List<Help>> findByCompleteDateIsNullOrderByCreateDateDesc();
+    Optional<List<Help>> findByCompleteDateIsNotNullOrderByCreateDateDesc();
 
     Optional<Help> findByHelpId(String helpId);
 
