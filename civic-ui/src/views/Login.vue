@@ -1,7 +1,10 @@
 <template>
   <div>
-    <h1 style="margin-top:100px;margin-bottom:30px;">Olwaz Placeholder</h1>
-  <b-container fluid >
+    <div class="site-name" style="padding-top:30px;margin-bottom:30px;">
+      Olwaz
+    </div>
+
+  <b-container fluid style="padding-top: 180px;" >
       <b-form @submit="onSubmit">
         <b-form-group
           label-cols-lg="3"
@@ -79,4 +82,21 @@ a {
   font-weight: bold;
   width: 100%;
 }
+
+.site-name {
+
+  position: absolute;
+  width: 112px;
+  height: 46px;
+  left: 152px;
+  top: 45px;
+
+  font-family: Helvetica Neue;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 42px;
+  line-height: 46px;
+  color: #373A3C;
+}
+
 </style>
