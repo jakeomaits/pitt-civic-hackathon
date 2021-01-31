@@ -68,7 +68,7 @@ public class Help {
     private String cheered;
 
     @Column(name = "CHEER_MESSAGE")
-    private String cheerMessage;
+    private Integer cheerMessage;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "USER_ID", insertable = false, updatable = false)
