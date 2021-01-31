@@ -60,7 +60,11 @@ export default {
     <b-form @submit="onSubmit">
 
 <div class="app">
-    <base-image-input v-model="imageFile"/>
+    <b-row>
+      <b-col><p>Upload a photo to help explain your request (Optional)</p></b-col>
+      <b-col><base-image-input v-model="imageFile"/></b-col>
+    </b-row>
+    
   </div>
 
       <b-form-group
