@@ -56,42 +56,44 @@ export default {
     
     <b-button type="text" variant="primary">Back</b-button>
 
-    <h2>What's your reqest?</h2>
+    <h1>Olwaz Placeholder</h1>
     <b-form @submit="onSubmit">
 
-<div class="app">
+<div style="height: 100px; margin-bottom: 30px;">
     <b-row>
-      <b-col><p>Upload a photo to help explain your request (Optional)</p></b-col>
-      <b-col><base-image-input v-model="imageFile"/></b-col>
+      <b-col><p style="text-align: left;">Upload a photo to help explain your request (Optional)</p></b-col>
+      <b-col><base-image-input v-model="imageFile" style="height: 100px; width: 260px;"/></b-col>
     </b-row>
     
   </div>
 
       <b-form-group
         label-cols-sm="3"
-        label-align-sm="right"
-        label="What type of assistanc do you need? "
+        label-align="left"
+        label="What type of assistance do you need? "
         label-for="help-title"
       >
         <div>
-          <b-form-select v-model="helpForm.helpType" :options="options"></b-form-select>
+          <b-form-select v-model="helpForm.helpType" :options="options"  >
+          </b-form-select>
         </div>
       </b-form-group>
 
-      <b-form-group label="Title" label-for="help-title" label-cols-sm="3" label-align-sm="right">
-        <b-form-input id="title" v-model="helpForm.title"></b-form-input>
+      <b-form-group label="Title" label-for="help-title" label-cols-sm="3"
+                    label-align="left">
+        <b-form-input id="title" v-model="helpForm.title" placeholder="ex. 'The wind blew down my fence.'" ></b-form-input>
       </b-form-group>
 
       <b-form-group
         label="Description:"
         label-for="Description"
         label-cols-sm="3"
-        label-align-sm="right"
+        label-align="left"
       >
         <b-form-textarea
           id="description"
           v-model="helpForm.description"
-          placeholder="How can we help..."
+          placeholder="Describe in more detail what you are requesting so group members can determine if they are able to help."
           rows="3"
           max-rows="6"
         ></b-form-textarea>
@@ -101,19 +103,35 @@ export default {
           label="Zip Code"
           label-for="help-zip"
           label-cols-sm="3"
-          label-align-sm="right"
+          label-align="left"
+
         >
-          <b-form-input id="zip" v-model="helpForm.zip"></b-form-input>
+          <b-form-input id="zip" v-model="helpForm.zip" placeholder="ex. 12345"></b-form-input>
         </b-form-group>
 
+         <b-row>
+      <b-col>
         <b-form-group
-          label="When do I need help ?"
+          label="What date do you need help"
           label-for="help-date"
           label-cols-sm="3"
-          label-align-sm="right"
+          label-align="left"
+          style="font-size: 13px;"
         >
           <b-form-datepicker id="example-datepicker" v-model="helpForm.requestedDate" class="mb-2"></b-form-datepicker>
-        </b-form-group>
+        </b-form-group></b-col>
+           <b-col><b-form-group
+               label="Note on date (Optional)"
+               label-for="help-date"
+               label-cols-sm="3"
+               label-align="left"
+               style="font-size: 13px;"
+           >
+
+           <b-form-input id="time-of-day" placeholder="ex. Evening"></b-form-input>
+              </b-form-group>
+           </b-col>
+         </b-row>
       </span>
       <StickyButtonRequest />
     </b-form>
