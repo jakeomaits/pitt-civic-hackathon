@@ -81,6 +81,12 @@ public class Help {
     @Column(name = "UPDATE_DATE")
     private String updateDate;
 
+    @Column(name = "IMAGE_COLOR")
+    private String imageColor;
+
+    @Column(name = "IMAGE_NAME")
+    private String imageName;
+
     @PostLoad
     private void postLoad()
     {

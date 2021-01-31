@@ -290,6 +290,14 @@ components:
             type: string
             description: "Indicates if the current user has cheered this help."
             example: "True"
+        imageColor:
+          type: string
+          description: "Indicates if this users image color."
+          example: "ABC2839D"
+        imageName:
+          type: string
+          description: "Indicates if this users image color."
+          example: "mini-profile-blue.png"
         completedUser:
           $ref: '#/components/schemas/user'
         requestedUser:
