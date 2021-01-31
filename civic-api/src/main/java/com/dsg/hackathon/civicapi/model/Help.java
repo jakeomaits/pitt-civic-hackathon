@@ -33,19 +33,19 @@ public class Help {
     @Column(name = "USER_ID", nullable = false)
     private String userId;
 
-    @Column(name = "ZIP", nullable = false)
+    @Column(name = "ZIP")
     private String zip;
 
-    @Column(name = "REQUESTED_DATE", nullable = false)
+    @Column(name = "REQUESTED_DATE")
     private String requestedDate;
 
-    @Column(name = "HELP_TYPE", nullable = false)
+    @Column(name = "HELP_TYPE")
     private String helpType;
 
-    @Column(name = "IMAGE_URL", nullable = false, length = 2048)
+    @Column(name = "IMAGE_URL", length = 2048)
     private String imageUrl;
 
-    @Column(name = "TIME_OF_DAY", nullable = false)
+    @Column(name = "TIME_OF_DAY")
     private String timeOfDay;
 
     @Column(name = "COMPLETE_DATE")
@@ -63,6 +63,12 @@ public class Help {
 
     @Column(name = "COMMENTS")
     private String comments;
+
+    @Column(name = "CHEERED")
+    private String cheered;
+
+    @Column(name = "CHEER_MESSAGE")
+    private String cheerMessage;
 
     @PostLoad
     private void postLoad()

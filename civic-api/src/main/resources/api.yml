@@ -129,7 +129,7 @@ paths:
             type: string
         - name: completed
           in: query
-          description: "Indicates whether you would the results to include completed or incomplete. Send True/False. Do not include if you do not want to filter on this field.."
+          description: "Indicates whether you would the results to include completed or incomplete. Send True/False. Do not include if you do not want to filter on this field."
           required: false
           schema:
             type: boolean
@@ -282,6 +282,14 @@ components:
             type: string
             description: "The ID of the person that completed this help."
             example: "b6ab3c46-62a3-11eb-ae93-0242ac130066"
+        cheerMessage:
+            type: string
+            description: "The message to show under the accomplished card."
+            example: "You and (2) others send cheers!"
+        cheered:
+            type: string
+            description: "Indicates if the current user has cheered this help."
+            example: "True"
 
     helpsResponse:
         type: object
