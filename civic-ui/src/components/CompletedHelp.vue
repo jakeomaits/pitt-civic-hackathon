@@ -20,7 +20,7 @@
       footer-bg-variant="light"
     >
       <b-row>
-        <b-col><img src="../assets/clap.png"/><span class="cheers">7 Cheers!</span></b-col>
+        <b-col class="cheer-col"><img :src="require('../assets/' + imgName())" class="cheer-img" @click="handleClick()"><span class="cheers">{{ cheer.count }} Cheers!</span></b-col>
         <b-col class="read-more">Read More</b-col>
       </b-row>
     </b-card-footer>
@@ -31,7 +31,27 @@
 
 export default {
   name: "CompletedHelp",
-  props: ['help']
+  props: ['help'],
+  data() {
+    return {
+      icon: {
+        selected: (this.help.cheered === "true"),
+        name: this.help.cheered === "true" ? "selected_clap" : "unselected_clap"
+      },
+      cheer: {
+        count: this.help.cheerMessage
+      }
+    };
+  },
+  methods: {
+    imgName: function() {
+      return this.icon.selected ? 'selected_clap.png' : 'unselected_clap.png';
+    },
+    handleClick: function () {
+      this.icon.selected = !this.icon.selected;
+      this.icon.selected ? this.cheer.count++ : this.cheer.count--;
+    },
+  },
 }
 
 </script>
@@ -96,12 +116,22 @@ export default {
   font-weight: bold;
 }
 
+.cheer-img {
+  cursor: pointer;
+}
+
 .cheers {
   font-size:.5rem;
   margin-left: 3px;
 }
 
+.cheer-col {
+  padding-right: 2px;
+}
+
 .read-more {
   text-decoration: underline;
+  padding-right: 2px;
 }
+
 </style>
