@@ -34,22 +34,19 @@ export default {
   props: ['help'],
   data() {
     return {
-      icon: {
-        selected: (this.help.cheered === "true"),
-        name: this.help.cheered === "true" ? "selected_clap" : "unselected_clap"
-      },
       cheer: {
+        selected: (this.help.cheered === "true"),
         count: this.help.cheerMessage
       }
     };
   },
   methods: {
     imgName: function() {
-      return this.icon.selected ? 'selected_clap.png' : 'unselected_clap.png';
+      return this.cheer.selected ? 'selected_clap.png' : 'unselected_clap.png';
     },
     handleClick: function () {
-      this.icon.selected = !this.icon.selected;
-      this.icon.selected ? this.cheer.count++ : this.cheer.count--;
+      this.cheer.selected = !this.cheer.selected;
+      this.cheer.selected ? this.cheer.count++ : this.cheer.count--;
     },
   },
 }
@@ -132,6 +129,7 @@ export default {
 .read-more {
   text-decoration: underline;
   padding-right: 2px;
+  cursor: pointer;
 }
 
 </style>
