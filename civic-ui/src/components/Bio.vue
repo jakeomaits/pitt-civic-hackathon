@@ -29,7 +29,7 @@ export default {
     .bio {
   font-size: 14px;
   position: absolute;
-  top: 175px;
+  top: 165px;
   left: 120px;
     }
 
