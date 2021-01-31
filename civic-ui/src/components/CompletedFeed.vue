@@ -1,15 +1,19 @@
 <template>
   <b-container fluid class="mt-4 mb-4">
     <b-row >
-      <h5>Completed Requests</h5>
+      <h5>Mission Accomplished!</h5>
     </b-row>
-    <b-row class="mt-2">
+    <div class="hs">
+    <b-row class="mt-2 ml-1">
+      
       <CompletedHelp
         v-for="help of helps"
         v-bind:key="help.id"
         :help="help"
       />
+      
     </b-row>
+    </div>
   </b-container>
 </template>
 
@@ -49,5 +53,15 @@ export default {
   .col {
     padding: 0px;
     margin: 3px;
+  }
+
+  .hs {
+    display: flex;
+    overflow-x: scroll;
+    height: 15rem;
+  }
+
+  .row {
+    flex-wrap: nowrap;
   }
 </style>

@@ -7,19 +7,28 @@
       header-text-variant="white"
     >
       <b-avatar variant="light" class="mr-2"></b-avatar>
-      <span class="user">{{user.firstName}}</span>
+      <span class="user">{{ user.firstName }}</span>
     </b-card-header>
-    <b-card-title>
-      Helped with {{help.helpType}}
+    <b-card-title class="pt-2 pl-2">
+      Helped with {{ help.helpType }}
     </b-card-title>
-    <b-card-text>
-      "Thank you!"
+    <b-card-text class="pt-2 pl-2">
+        "{{ help.comments }}"
     </b-card-text>
+    <b-card-footer
+      footer-bg-variant="light"
+    >
+      <b-row>
+        <b-col><img src="../assets/clap.png"/></b-col>
+        <b-col class="read-more">Read More</b-col>
+      </b-row>
+    </b-card-footer>
   </b-card>
 </template>
 
 <script>
 import { CIVIC_API } from "../http-common";
+
 export default {
   name: "CompletedHelp",
   props: ['help'],
@@ -51,15 +60,21 @@ export default {
 }
 
 .card-title {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: bold;
   text-align: left;
-  padding: 5px;
 }
 
 .card-header {
   border-top-left-radius: 2rem!important;
   border-top-right-radius: 2rem!important;
+  text-align: left;
+}
+
+.card-footer {
+  border-bottom-left-radius: 2rem!important;
+  border-bottom-right-radius: 2rem!important;
+  font-size:.8rem;
   text-align: left;
 }
 
@@ -69,29 +84,24 @@ export default {
   margin-right: 10px;
 }
 
-/* 
-
-
-
-
-
-.description {
+.card-text {
   font-size:.8rem;
   overflow:hidden;
+  text-overflow: clip;
   line-height: 1rem;
-  max-height: 2rem;
-  display: block;
   display: -webkit-box;
-  overflow: hidden !important;
-  text-overflow: ellipsis;
-  -webkit-line-clamp: 4;
-  text-align: left;
-} */
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
 
 .user {
   text-align: right;
   font-size:.8rem;
   font-weight: bold;
   padding-top: 1;
+}
+
+.read-more {
+  text-decoration: underline;
 }
 </style>
