@@ -1,7 +1,6 @@
 <script>
-//import imageUploader from "./ImageUploader";
 import { CIVIC_API } from "../http-common";
-//import HelpCategory from "./HelpCategory"
+import BaseImageInput from "./BaseImageInput.vue"
 
 export default {
   name: "HelpForm",
@@ -17,8 +16,10 @@ export default {
         imageUrl: "https://images.app.goo.gl/9CT512Aebrw5yeXY8",
         imageData: ""
       },
+      imageData: null,
+      imageFile: null,
       hasImage: false,
-      image: null,
+      image: "../assets/logo.png",
       selected: null,
       options: [
         "Home/ Repair",
@@ -32,40 +33,17 @@ export default {
     };
   },
   methods: {
-    setImage: function(output) {
-      this.hasImage = true;
-      this.image = output;
-      console.log("Info", output.info);
-      console.log("Exif", output.exif);
-    },
     async onSubmit(event) {
       event.preventDefault();
       const helpPost = await CIVIC_API.post("/help", this.helpForm);
       console.log("Person created");
       console.log(helpPost);
     },
-     previewImage: function(event) {
-            // Reference to the DOM input element
-            var input = event.target;
-            // Ensure that you have a file before attempting to read it
-            if (input.files && input.files[0]) {
-                // create a new FileReader to read this image and convert to base64 format
-                var reader = new FileReader();
-                // Define a callback function to run, when FileReader finishes its job
-                reader.onload = (e) => {
-                    // Note: arrow function used here, so that "this.imageData" refers to the imageData of Vue component
-                    // Read image as base64 and set to imageData
-                    this.helpForm.imageData = e.target.result;
-                }
-                // Start the reader job - read file as a data url (base64 format)
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
   },
   components: {
-    //imageUploader: imageUploader,
-    //HelpCategory
-  }
+    BaseImageInput
+  },
+  
 };
 </script>
 
@@ -73,29 +51,14 @@ export default {
   <b-container fluid>
     <h2>What's your reqest?</h2>
     <b-form @submit="onSubmit">
-      <!-- <b-form-group
-        label="Upload Image"
-        label-for="help-title"
-        label-cols-sm="3"
-        label-align-sm="right"
-      >
-        <img width="200" height="200" src="https://images.app.goo.gl/9CT512Aebrw5yeXY8" />
-      </b-form-group> -->
 
-      <div>
-            <div class="file-upload-form">
-                Upload an image file:
-                <input type="file" @change="previewImage" accept="image/*">
-            </div>
-            <div class="image-preview" v-if="helpForm.imageData.length > 0">
-                <img class="preview" :src="helpForm.imageData">
-            </div>
-        </div>
+<div class="app">
+    <base-image-input v-model="imageFile"/>
+  </div>
 
       <b-form-group
-        label-cols="4"
-        label-cols-lg="2"
-        label-align="right"
+        label-cols-sm="3"
+        label-align-sm="right"
         label="What type of assistanc do you need? "
         label-for="help-title"
       >
@@ -168,5 +131,50 @@ a {
 .my-8 {
   margin-top: 4rem;
   margin-bottom: 4rem;
+}
+
+.image-preview {
+  width: 50%;
+  height: 100px;
+  float: left;
+  border-style: solid;
+}
+.file-upload-form {
+  margin-left: 50%;
+  height: 100px;
+}
+
+.preview {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.image-input {
+  display: block;
+  width: 200px;
+  height: 200px;
+  cursor: pointer;
+  background-size: cover;
+  background-position: center center;
+}
+
+.placeholder {
+  background: #f0f0f0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #333;
+  font-size: 18px;
+  font-family: Helvetica;
+}
+
+.placeholder:hover {
+  background: #e0e0e0;
+}
+
+.file-input {
+  display: none;
 }
 </style>
