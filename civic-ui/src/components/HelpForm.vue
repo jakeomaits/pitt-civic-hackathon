@@ -2,7 +2,6 @@
 import { CIVIC_API } from "../http-common";
 import BaseImageInput from "./BaseImageInput.vue"
 import NavBack from "./NavBack.vue"
-import SiteName from "./SiteName.vue"
 import StickyButtonRequest from "./StickyButtonRequest";
 import router from '../router/index.js'
 
@@ -49,8 +48,8 @@ export default {
   components: {
     BaseImageInput,
     NavBack,
-    SiteName,
     StickyButtonRequest
+
   },
   
 };
@@ -60,8 +59,11 @@ export default {
   <b-container  class="mainContainer" fluid>
 
     <NavBack />
-    <SiteName />
 
+    <div class="site-name">
+      Olwaz
+    </div>
+    <h2>What's your reqest?</h2>
     <b-form @submit="onSubmit">
 
 <div style="height: 100px; margin-bottom: 30px;">
@@ -169,5 +171,21 @@ a {
 .mainContainer{
     border-radius:100px;
 }
+
+.site-name {
+
+        position: absolute;
+        width: 112px;
+        height: 46px;
+        left: 152px;
+        top: 45px;
+
+        font-family: Helvetica Neue;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 42px;
+        line-height: 46px;
+        color: #373A3C;
+    }
 
 </style>
