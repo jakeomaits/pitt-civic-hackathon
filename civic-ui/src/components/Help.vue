@@ -2,7 +2,7 @@
 <template>
   <b-card
     :title=help.title
-    img-src="https://mymodernmet.com/wp/wp-content/uploads/2018/01/bailey-dog-meme-2.jpg"
+    :img-src=help.imageUrl
     img-alt="Image"
 
     class="mb-2 rounded"
@@ -57,8 +57,7 @@ export default {
 .card {
   height: 12.5rem;
   width: 12.5rem;
-  display: flex;
-	flex-direction: column;
+  position:relative;
 }
 
 .rounded {
@@ -67,7 +66,7 @@ export default {
 
 .card-img {
   object-fit: cover;
-  height: 70px;
+  height: 75px;
   border-top-left-radius: 2rem!important;
   border-top-right-radius: 2rem!important;
 }
@@ -104,10 +103,14 @@ export default {
 }
 
 .time {
+  width:100%;
   text-align: center;
-  font-size: 15px;
-  padding: 5px;  
-  margin-top: auto;
+  font-size: 14px;
+  position:absolute;
+  bottom:5px;
+  left:50%;
+  margin-left:-50%;
+  
 }
 
 </style>
