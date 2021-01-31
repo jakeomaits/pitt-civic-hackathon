@@ -91,14 +91,8 @@ public class Help {
     private void postLoad()
     {
         LocalDate dateBefore = LocalDate.parse(requestedDate);
-        //daysRemaining = (int)DAYS.between(dateBefore, LocalDate.now());
-       // daysRemaining = dateBefore.compareTo(LocalDate.now());
         daysRemaining =  (int)Duration.between(dateBefore.atStartOfDay(), LocalDate.now().atStartOfDay()).toDays() *-1;
 
-        //if (!dateBefore.compareTo(LocalDate.now()))
-        //{
-        //    daysRemaining = daysRemaining*-1;
-        //}
     }
 
 }
