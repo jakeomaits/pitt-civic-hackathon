@@ -1,9 +1,9 @@
 <template>
   <div>
-  <div>
-    <button v-on:click=back>Back</button>
-  </div>
-    <h1>Olwaz Placeholder</h1>
+    <NavBack />
+    <div class="site-name">
+      Olwaz
+    </div>
   <div style="padding-bottom: 30px">
     <img width="100%" src="../assets/ViewRequest.png" />
   </div>
@@ -17,9 +17,12 @@
 </template>
 
 <script>
-
+import NavBack from "../components/NavBack.vue"
 export default {
   name: "FulfillRequest",
+  components: {
+    NavBack,
+  },
   methods: {
     async fulfill(event) {
       event.preventDefault();
@@ -72,4 +75,20 @@ export default {
   padding-left: 0px;
   padding-right: 0px;
 }
+
+.site-name {
+
+        position: absolute;
+        width: 112px;
+        height: 46px;
+        left: 152px;
+        top: 45px;
+
+        font-family: Helvetica Neue;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 42px;
+        line-height: 46px;
+        color: #373A3C;
+    }
 </style>

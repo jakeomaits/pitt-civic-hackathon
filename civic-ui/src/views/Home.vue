@@ -2,7 +2,9 @@
   <div class="home">
     <!-- <Header /> -->
     <NavSignOut />
-    <SiteName />
+    <div class="site-name">
+      Olwaz
+    </div>
     <Bio />
     <CompletedFeed />
     <Feed />
@@ -14,7 +16,6 @@
 // @ is an alias to /src
 // import Header from '@/components/Header.vue';
 import NavSignOut from '@/components/NavSignOut.vue';
-import SiteName from '@/components/SiteName.vue';
 import Bio from '@/components/Bio.vue';
 import Feed from '@/components/Feed.vue';
 import CompletedFeed from '@/components/CompletedFeed.vue';
@@ -25,7 +26,6 @@ export default {
   components: {
     // Header,
     NavSignOut,
-    SiteName,
     Bio,
     Feed, 
     CompletedFeed,
@@ -33,3 +33,21 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.site-name {
+
+        position: absolute;
+        width: 112px;
+        height: 46px;
+        left: 152px;
+        top: 45px;
+
+        font-family: Helvetica Neue;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 42px;
+        line-height: 46px;
+        color: #373A3C;
+    }
+</style>
