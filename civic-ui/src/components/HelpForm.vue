@@ -1,24 +1,33 @@
 <script>
 //import imageUploader from "./ImageUploader";
 import { CIVIC_API } from "../http-common";
-import HelpCategory from "./HelpCategory";
-
+//import HelpCategory from "./HelpCategory"
 
 export default {
   name: "HelpForm",
   data() {
     return {
       helpForm: {
-        userId: "",
+        userId: "https://images.app.goo.gl/9CT512Aebrw5yeXY8",
         title: "",
         description: "",
         zip: "",
-        requestedDate: "",
+        requestDate: "",
         helpType: "",
-        imageUrl: ""
+        imageUrl: "https://images.app.goo.gl/9CT512Aebrw5yeXY8"
       },
       hasImage: false,
-      image: null
+      image: null,
+      selected: null,
+      options: [
+        "Home/ Repair",
+        "Child/Dependent Care",
+        "Food/ Grocery",
+        "Transportation",
+        "Skill",
+        "Medical",
+        "Physical Good/ Donation"
+      ]
     };
   },
   methods: {
@@ -30,15 +39,14 @@ export default {
     },
     async onSubmit(event) {
       event.preventDefault();
-      const helpPost = await CIVIC_API.post("", this.helpForm);
+      const helpPost = await CIVIC_API + "help".post("/help", this.helpForm);
       console.log("Person created");
       console.log(helpPost);
     }
   },
   components: {
     //imageUploader: imageUploader,
-    HelpCategory: HelpCategory,
-   
+    //HelpCategory
   }
 };
 </script>
@@ -56,12 +64,16 @@ export default {
         <img src="../assets/logo.png" />
       </b-form-group>
 
-      <b-form-group label-cols="4" label-cols-lg="2" label-align="right" 
+      <b-form-group
+        label-cols="4"
+        label-cols-lg="2"
+        label-align="right"
         label="What type of assistanc do you need? "
         label-for="help-title"
-
       >
-        <HelpCategory />
+        <div>
+          <b-form-select v-model="helpForm.helpType" :options="options"></b-form-select>
+        </div>
       </b-form-group>
 
       <b-form-group label="Title" label-for="help-title" label-cols-sm="3" label-align-sm="right">
@@ -98,7 +110,7 @@ export default {
           label-cols-sm="3"
           label-align-sm="right"
         >
-          <b-form-datepicker id="example-datepicker" v-model="value" class="mb-2"></b-form-datepicker>
+          <b-form-datepicker id="example-datepicker" v-model="helpForm.requestDate" class="mb-2"></b-form-datepicker>
         </b-form-group>
       </span>
       <b-button type="submit" variant="primary">Submit</b-button>
