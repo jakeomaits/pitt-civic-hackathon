@@ -78,6 +78,9 @@ public class Help {
     @JoinColumn(name = "COMPLETED_BY", insertable = false, updatable = false)
     private User completedUser;
 
+    @Column(name = "UPDATE_DATE")
+    private String updateDate;
+
     @PostLoad
     private void postLoad()
     {
