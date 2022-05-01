@@ -1,1 +1,2 @@
-# pitt-civic-hackathon
+# Pittsburgh Civic Hackathon 2021
+This application was created during the 2021 Pittsburgh Civic Hackathon. It aims to connect volunteers with opportunities. Example use cases may be organizing baseball field workdays, gemeral assistance for the elderly or even rescuing a stranded cat from a tree. It was written using the Nuxt framework (front-end) and Springboot Java backend using an open-api spec. The database is hosted in Heroku and github actions auto build to the cloud.
